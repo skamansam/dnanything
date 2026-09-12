@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml" />
+	<link rel="manifest" href="%sveltekit.assets%/manifest.json" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#9b2335" />
+	<title>DNAnything</title>
+	<link rel="preconnect" href="https://fonts.bunny.net" />
+	<link href="https://fonts.bunny.net/css?family=crimson-pro:400,500,600,700,400i,500i,600i,700i" rel="stylesheet" />
+	<script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
+	<script>
+		(function () {
+			const STORAGE_KEY = 'dnanything-theme';
+			const colorThemes = [
+				{ name: 'Wine', primary: '#9b2335', secondary: '#e7e5e4', accent: '#b73a4a', bg: '#faf8f5', border: '#d6d3d1', text: '#1c1917' },
+				{ name: 'Burgundy', primary: '#a00030', secondary: '#ede5dc', accent: '#b8243a', bg: '#fff8f0', border: '#d8cfc4', text: '#1a0f10' },
+				{ name: 'Merlot', primary: '#8b3a42', secondary: '#e7e0d8', accent: '#a04a52', bg: '#f5f0eb', border: '#d0c9c0', text: '#292524' },
+				{ name: 'Oxblood', primary: '#6b1414', secondary: '#e0ddd9', accent: '#8b2424', bg: '#f0eeec', border: '#ccc8c2', text: '#2b211e' }
+			];
+
+			function applyTheme(theme) {
+				document.documentElement.style.setProperty('--theme-primary', theme.primary);
+				document.documentElement.style.setProperty('--theme-secondary', theme.secondary);
+				document.documentElement.style.setProperty('--theme-accent', theme.accent);
+				document.documentElement.style.setProperty('--theme-bg', theme.bg);
+				document.documentElement.style.setProperty('--theme-border', theme.border);
+				document.documentElement.style.setProperty('--theme-text', theme.text);
+			}
+
+			try {
+				const stored = localStorage.getItem(STORAGE_KEY);
+				if (stored) {
+					const data = JSON.parse(stored);
+					applyTheme(colorThemes[data.selectedTheme] ?? colorThemes[0]);
+				}
+			} catch {
+				// Storage might be disabled or corrupted
+			}
+		})();
+	</script>
+	%sveltekit.head%
+</head>
+
+<body data-sveltekit-preload-data="hover" data-theme class="bg-background text-text font-sans">
+	<div>%sveltekit.body%</div>
+</body>
+
+</html>
