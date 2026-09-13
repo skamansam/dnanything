@@ -6,7 +6,21 @@
  * See docs/plans/DATA_ACCESS_LAYER.md.
  */
 
-import type { Item, ItemType, NewItem, NewItemType, NewRating, Rating } from '$lib/types';
+import type {
+	ChangeLog,
+	Item,
+	ItemType,
+	NewItem,
+	NewItemType,
+	NewRating,
+	NewRecommendation,
+	NewReview,
+	NewChangeLog,
+	Rating,
+	Recommendation,
+	Review,
+	User
+} from '$lib/types';
 
 /** The data access contract. Implementations live in repositories.ts. */
 export interface Repository {
@@ -40,9 +54,48 @@ export interface Repository {
 	/** Insert or update a user's rating for an item (upsert). */
 	upsertRating(input: NewRating): Promise<Rating>;
 
+	// ── Reviews ────────────────────────────────────────────────
+	/** Get all reviews for an item. */
+	getReviews(itemId: string): Promise<Review[]>;
+	/** Get a specific user's review for an item. */
+	getUserReview(itemId: string, userId: string): Promise<Review | null>;
+	/** Create a new review. */
+	createReview(input: NewReview): Promise<Review>;
+	/** Update an existing review. */
+	updateReview(id: string, input: Partial<NewReview>): Promise<Review>;
+	/** Delete a review. */
+	deleteReview(id: string): Promise<void>;
+	// ── Recommendations ─────────────────────────────────────────
+	/** Get all recommendations where this item is the target (i.e. "items recommended as similar to this one"). */
+	getRecommendationsForItem(targetItemId: string): Promise<Recommendation[]>;
+	/** Get all recommendations made by a user. */
+	getRecommendationsByUser(userId: string): Promise<Recommendation[]>;
+	/** Create a new recommendation. */
+	createRecommendation(input: NewRecommendation): Promise<Recommendation>;
+	/** Delete a recommendation. */
+	deleteRecommendation(id: string): Promise<void>;
+
 	// ── Aggregates ─────────────────────────────────────────────
 	/** Recalculate the cached average ratings + count for an item. */
 	recalculateAverages(itemId: string): Promise<void>;
+	/** Recalculate the cached average review score + count for an item. */
+	recalculateReviewScore(itemId: string): Promise<void>;
+
+	// ── Users ──────────────────────────────────────────────────
+	/** Get a user by id. */
+	getUser(id: string): Promise<User | null>;
+	/** List all users. */
+	listUsers(): Promise<User[]>;
+
+	// ── Change Logs ────────────────────────────────────────────
+	/** Get change log entries for a specific entity. */
+	getChangeLogs(entityType: ChangeLog['entityType'], entityId: string): Promise<ChangeLog[]>;
+	/** Get all change log entries by a user. */
+	getChangeLogsByUser(userId: string): Promise<ChangeLog[]>;
+	/** Get recent change log entries across all entities. */
+	getRecentChangeLogs(limit?: number): Promise<ChangeLog[]>;
+	/** Create a change log entry. */
+	createChangeLog(input: NewChangeLog): Promise<ChangeLog>;
 }
 
 /** Result of a local→remote sync upload. */
