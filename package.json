@@ -45,5 +45,12 @@
 		"postgres": "^3.4.0",
 		"sveltemeacoffee": "^0.0.1",
 		"twintrinsic": "github:skamansam/twintrinsic"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"twintrinsic",
+			"esbuild",
+			"@tailwindcss/oxide"
+		]
 	}
 }
