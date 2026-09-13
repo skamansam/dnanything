@@ -7,7 +7,7 @@ DNAnything is a SvelteKit application that uses a genetic algorithm to compare i
 1. **Genetic algorithm engine** – Maintain a pure, well-tested GA engine in `src/lib/ga/` that evolves attribute weights for similarity matching.
 2. **Data access layer** – Keep all ORM (Drizzle) calls centralized in `src/lib/db/repositories.ts` behind the `Repository` interface, so backends and ORMs are swappable.
 3. **Twintrinsic UI** – Build all UI with Twintrinsic components (local library at `../twintrinsic`), wired via Vite alias.
-4. **Auth + sync** – Full auth (Supabase) for cloud storage; anonymous users work against localStorage with upload-on-login.
+4. **Auth + moderation** – Public contributions (types, items, ratings, reviews, recommendations, flags, similarity search) require auth (Supabase). Anonymous users are read-only initially; local data merge (private local contributions) is a future feature for local Docker deployment. Flag-based moderation replaces hard deletes. User self-removal via anonymization. See `docs/plans/AUTH_FLAGS_AND_ANONYMIZATION.md`.
 5. **Testing** – Vitest for unit/logic tests, Playwright for e2e workflows.
 
 ## Toolbelt & Scripts
@@ -33,7 +33,7 @@ Use `pnpm` to run the scripts below:
 - **GA engine** (`src/lib/ga/`): Pure TypeScript, no framework deps. Seeded PRNG for deterministic tests. See `docs/plans/CORE_GENETIC_ALGORITHM.md`.
 - **Data access** (`src/lib/db/`): Repository pattern. All Drizzle calls in `repositories.ts`. Swap backend via `client.ts` (connection string), swap ORM via `repositories.ts`. See `docs/plans/DATA_ACCESS_LAYER.md`.
 - **Domain types** (`src/lib/types.ts`): Shared across GA, DB, services, and UI.
-- **Auth**: Supabase Auth (GitHub OAuth + email magic link). Anonymous users get a local pseudo-user id; data uploads on login.
+- **Auth**: Supabase Auth (GitHub OAuth + email magic link). Public contributions require auth. Anonymous users are read-only initially; local data merge (private local contributions merged with DB data on client) is a future feature for local Docker deployment. Similarity search requires auth. Flag-based moderation; user self-removal via anonymization. See `docs/plans/AUTH_FLAGS_AND_ANONYMIZATION.md`.
 
 ## Planning
 All implementation plans are in `docs/plans/`. Start with `RECOMMENDED_BUILD_PATH.md` for the sequenced roadmap.

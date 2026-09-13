@@ -18,6 +18,8 @@ and actionable; together they form the roadmap for the app.
 | **[GITHUB_HOSTING.md](./GITHUB_HOSTING.md)** | GitHub repository + hosting strategy |
 | **[TESTING.md](./TESTING.md)** | Vitest (unit) + Playwright (e2e) testing strategy |
 | **[RECOMMENDED_BUILD_PATH.md](./RECOMMENDED_BUILD_PATH.md)** | Sequenced 13-phase roadmap for building the app |
+| **[PER_TYPE_THEMING.md](./PER_TYPE_THEMING.md)** | Per-type header images + custom CSS theming (future) |
+| **[AUTH_FLAGS_AND_ANONYMIZATION.md](./AUTH_FLAGS_AND_ANONYMIZATION.md)** | Auth for all contributions, flag-based moderation, user anonymization |
 
 ## Cross-Cutting Decisions
 

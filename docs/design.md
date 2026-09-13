@@ -311,6 +311,45 @@ Every item gets a catalog number in the format `DNA-{TYPE}-{NUMBER}`:
 Catalog numbers are displayed in `tabular-nums`, `text-xs`, muted color,
 and appear in the item header and in cross-references.
 
+### Type Model: Attributes + Fields
+
+Every item type defines two separate collections:
+
+**Attributes** — the rated properties that form the item's genome. Each
+attribute is rated on a 0–100 scale (stored as 0–5 internally, ×20 for
+display). These are what the bar chart visualizes and what the GA engine
+compares.
+
+Example (Music type):
+```
+ATTRIBUTES
+  female_vocals    Female Vocals
+  male_vocals      Male Vocals
+  heavy_beats      Heavy Beats
+  violin           Violin
+  synth            Synth Layers
+  bass_guitar      Bass Guitar
+  ...
+```
+
+**Fields** — the metadata fields that describe the item (like catalog
+card fields). These are text values, not rated. They appear in the
+metadata block on the item page.
+
+Example (Music type):
+```
+FIELDS
+  artist       Artist        (required)
+  year         Year
+  label        Label
+  format       Format
+  duration     Duration
+```
+
+When creating a type, the user defines both the attributes (for ratings)
+and the fields (for metadata). When creating an item, the user fills in
+the field values and can optionally provide initial attribute ratings.
+
 ### Metadata Blocks
 
 Item pages open with a structured metadata block (like a citation or
@@ -333,6 +372,73 @@ Item and type pages begin with an "Abstract" — a short summary paragraph
 in a distinct block (slightly indented or bordered with a left rule),
 labeled "ABSTRACT" in small caps. This mirrors the structure of an
 academic paper.
+
+### Rating Display: Bar Chart
+
+The primary data visualization for an item's attribute ratings is a **bar
+chart** — not a table or metric grid. This is the signature visual element of
+the catalog, appearing on every item page.
+
+```
+100 │  ██
+ 75 │  ██  ██
+ 50 │  ██  ██  ██        ██
+ 25 │  ██  ██  ██  ██    ██  ██
+  0 └─────────────────────────────
+       A   B   C   D  …  E   F   G
+```
+
+- **Vertical axis**: rating value, 0–100 (scaled from the 0–5 input;
+  rating × 20 = percentage).
+- **Horizontal axis**: attributes, one bar per attribute.
+- **No labels on the chart**: the chart is purely visual. Attribute names
+  and values are conveyed through the Major/Minor attribute lists below.
+- **Bar color**: `--theme-primary` (wine). Bars below 50 are muted/transparent
+  to visually de-emphasize them.
+- **Height**: roughly 200–250px — tall enough to read relative differences,
+  short enough to stay above the fold.
+- **Responsive**: bars maintain equal width; chart scales horizontally.
+  On mobile, bars get narrower but remain readable.
+
+### Major & Minor Attribute Lists
+
+Below the bar chart, attributes are organized into two ranked lists. Only
+attributes with a rating **above 50** (i.e. above 2.5 on the 0–5 scale)
+qualify for inclusion.
+
+**Major Attributes** — the top 7 highest-rated attributes:
+```
+MAJOR ATTRIBUTES
+1. Heavy Beats          85
+2. Female Vocals        78
+3. Synth Layers         72
+4. Bass Guitar          68
+5. Electronic           64
+6. Tempo                58
+7. Melodic              52
+```
+
+**Minor Attributes** — the next 7 highest-rated attributes (ranks 8–14):
+```
+MINOR ATTRIBUTES
+8.  Guitar Solo          48
+9.  Reverb               44
+10. Distortion            40
+11. Male Vocals           36
+12. Acoustic              32
+13. Violin                28
+14. Ambient               24
+```
+
+- Lists use numbered rows with `tabular-nums` for the percentage values.
+- Attribute names use normal weight; values use `font-semibold` in
+  `--theme-primary`.
+- If fewer than 7 attributes qualify (above 50), the Major list simply has
+  fewer entries. Same for Minor.
+- If fewer than 14 attributes total qualify, the Minor list may be empty
+  or shorter.
+- Attributes rated 50 or below are not listed — they're visible only as
+  muted bars in the chart.
 
 ### Tables
 
@@ -386,10 +492,10 @@ surfaces to Twintrinsic components and the design rules for each.
 
 | Component | Usage | Design notes |
 |----------|-------|--------------|
-| `Table` | Ratings list, similar items, item catalog | Horizontal rules only, no vertical borders |
+| `Table` | Similar items, item catalog lists | Horizontal rules only, no vertical borders |
 | `Tag` / `TagGroup` | Attribute labels, genre tags | Small, muted — like keywords in a paper |
 | `Badge` | Rating counts, catalog status | Small, inline, restrained |
-| `MetricGrid` | Average ratings display | One metric per attribute, with label + value |
+| Bar chart (custom) | Attribute ratings display | Vertical bars, 0–100 scale, no labels; Major/Minor lists below |
 | `StatsCard` | Item summary stats | Rating count, avg score — like a data summary block |
 | `Progress` | GA deep-match progress | Thin bar, wine-colored fill |
 | `Skeleton` | Loading states | While fetching data |
@@ -402,7 +508,7 @@ surfaces to Twintrinsic components and the design rules for each.
 | `TextInput` | Name, slug, metadata fields | Standard inputs, thin borders |
 | `Textarea` | Descriptions | For longer text — abstracts, notes |
 | `Select` / `SelectGroup` | Type selection, attribute type | Dropdowns |
-| `Slider` | Attribute rating input (0–5) | Primary rating UI — thin, wine-colored track |
+| `Slider` | Attribute rating input (0–100) | Primary rating UI — thin, wine-colored track; displayed as 0–100 but stored as 0–5 internally (×20) |
 | `Rating` | Alternative rating input (stars) | If slider feels too technical |
 | `Switch` / `RadioGroup` | Fast/Deep match mode toggle | Mode selector |
 | `Button` | Actions (create, save, find similar) | Primary (wine) for CTAs, secondary (outline) for cancel |
@@ -502,19 +608,37 @@ a catalog entry or data sheet.
 │  YEAR        1973                         │
 │  LABEL       Harvest Records              │
 │  FORMAT      Vinyl LP, 42:50              │
+│  (fields defined by the Music type)       │
 ├──────────────────────────────────────────┤
 │  ABSTRACT                                 │
 │  A concept album exploring themes of     │
 │  time, conflict, and madness...           │
 ├──────────────────────────────────────────┤
-│  1. Attribute Ratings                      │
+│  1. Attribute Profile                      │
 │  ─────────────────────────────────────── │
-│  1.1 Average Ratings                      │
-│  [MetricGrid: female_vocals: 4.2, ...]   │
-│  Rating count: 7                          │
 │                                            │
-│  1.2 Individual Ratings                   │
-│  [Table: user columns, attribute rows]    │
+│  [Bar Chart: vertical bars, 0–100 scale]  │
+│  [No axis labels — visual only]           │
+│                                            │
+│  1.1 Major Attributes (top 7, above 50)   │
+│  1. Heavy Beats          85               │
+│  2. Female Vocals        78               │
+│  3. Synth Layers         72               │
+│  4. Bass Guitar          68               │
+│  5. Electronic           64               │
+│  6. Tempo                58               │
+│  7. Melodic              52               │
+│                                            │
+│  1.2 Minor Attributes (next 7, above 50)  │
+│  8.  Guitar Solo          48               │
+│  9.  Reverb               44               │
+│  10. Distortion            40               │
+│  11. Male Vocals           36               │
+│  12. Acoustic              32               │
+│  13. Violin                28               │
+│  14. Ambient               24               │
+│                                            │
+│  Rating count: 7                          │
 ├──────────────────────────────────────────┤
 │  2. Similar Items                         │
 │  ─────────────────────────────────────── │
@@ -529,10 +653,14 @@ a catalog entry or data sheet.
 
 - **Metadata block**: definition list with small-caps labels at the top
 - **Abstract**: short description in a distinct block
-- **Numbered sections**: "1. Attribute Ratings", "2. Similar Items"
-- **Subsections**: "1.1 Average Ratings", "1.2 Individual Ratings"
-- **Ratings table**: academic table style (horizontal rules, tabular nums),
-  average row at top, each user's ratings below, own rating highlighted
+- **Numbered sections**: "1. Attribute Profile", "2. Similar Items"
+- **Bar chart**: vertical bars for all attributes, 0–100 scale, no labels.
+  Bars above 50 are wine-colored; bars at or below 50 are muted.
+- **Major Attributes**: ranked list of the top 7 attributes rated above 50,
+  with name + percentage value
+- **Minor Attributes**: ranked list of the next 7 attributes (ranks 8–14)
+  rated above 50, with name + percentage value
+- **Rating count**: total number of user ratings contributing to the average
 - **Similar items**: mode toggle, results table with scores and
   contributing-attribute tags
 - **References**: cross-linked items at the bottom, like a bibliography
@@ -541,11 +669,15 @@ a catalog entry or data sheet.
 
 **Goal**: Authenticated users define a new item type.
 
-- `Stepper`: Name & Slug → Attributes → Review
+- `Stepper`: Name & Slug → Fields → Attributes → Review
 - Step 1: `TextInput` for name, auto-generates slug, `Textarea` for abstract
-- Step 2: Attribute editor — add/remove `Attribute` rows, each with name +
-  optional description; drag to reorder
-- Step 3: Review summary, "Create Type" button
+- Step 2: Field editor — add/remove metadata `Field` rows, each with name,
+  optional description, and a "required" toggle. These define what metadata
+  items of this type will have (e.g. artist, year, label).
+- Step 3: Attribute editor — add/remove `Attribute` rows, each with name +
+  optional description; drag to reorder. These define the rated properties
+  that form each item's genome.
+- Step 4: Review summary showing both fields and attributes, "Create Type" button
 - Auth gate: if anonymous, show "Log in to create" `Alert` with login button
 
 ### Create Item (`/items/new`)
@@ -554,8 +686,10 @@ a catalog entry or data sheet.
 
 - `Select` for type (pre-selected if navigated from a type page)
 - `TextInput` for name, `Textarea` for abstract/description
-- Metadata key-value pairs (add/remove rows) — like filling in a catalog card
-- Initial attribute ratings (optional `Slider` inputs)
+- Metadata fields — rendered automatically from the type's defined `fields`
+  (e.g. if the type defines "artist" (required), "year", "label", those
+  fields appear as labeled `TextInput`s). No free-form key-value pairs.
+- Initial attribute ratings (optional `Slider` inputs, one per type attribute)
 - Auth gate same as Create Type
 
 ### Similar Items Results (`/similar` or inline panel)
@@ -661,8 +795,12 @@ communicate loading state); card hovers and modal transitions are not.
 
 ### Specific Patterns
 
-- Rating sliders: `aria-label` per attribute ("Rate Female Vocals, 0 to 5"),
+- Rating sliders: `aria-label` per attribute ("Rate Female Vocals, 0 to 100"),
   `aria-valuenow`/`aria-valuemin`/`aria-valuemax`
+- Bar chart: `role="img"` with `aria-label` summarizing the top attributes,
+  e.g. "Attribute profile: Heavy Beats 85, Female Vocals 78, Synth Layers 72"
+- Major/Minor attribute lists: standard ordered lists (`<ol>`), screen-reader
+  friendly with name + value text
 - Similar items table: `aria-label="Similar items ranked by score"`,
   score column header "Similarity Score"
 - GA progress: `aria-label="Genetic algorithm progress"`,
