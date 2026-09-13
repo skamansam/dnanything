@@ -5,10 +5,14 @@ import { defineConfig } from "vite";
 
 const dirname = import.meta.dirname ?? path.dirname(new URL(".", import.meta.url).pathname);
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
 	resolve: {
 		alias: {
-			twintrinsic: path.resolve(dirname, "../twintrinsic/src/lib"),
+			// In dev, use the local twintrinsic source for hot reload.
+			// In build (Vercel/production), fall back to the npm/GitHub dependency.
+			...(command === "serve"
+				? { twintrinsic: path.resolve(dirname, "../twintrinsic/src/lib") }
+				: {}),
 		},
 	},
 	server: {
@@ -17,4 +21,4 @@ export default defineConfig({
 		},
 	},
 	plugins: [sveltekit(), tailwindcss()],
-});
+}));

@@ -11,10 +11,16 @@ CI/CD, and frontend deployment — with the Supabase backend (see
   `/home/sam/workspace-other/dnanything` locally.
 - **Monorepo note**: `dnanything` is part of the local pnpm workspace
   (root `pnpm-workspace.yaml` lists it alongside `twintrinsic`,
-  `fo4-tools`, etc.). The GitHub repo should contain **only** the
-  `dnanything/` subtree, with Twintrinsic referenced as a local dev
-  alias (not committed). For CI, install Twintrinsic from its published
-  npm package or a git dependency.
+  `fo4-tools`, etc.). The GitHub repo contains **only** the
+  `dnanything/` subtree. Twintrinsic is referenced as:
+  - **In dev**: a Vite alias to `../twintrinsic/src/lib` (local source, hot reload).
+  - **In production (Vercel)**: a GitHub dependency
+    (`"twintrinsic": "github:skamansam/twintrinsic"` in `package.json`).
+    Vercel clones the twintrinsic repo and runs its `prepare` script
+    (`svelte-kit sync && svelte-package`) to build `dist/` during install.
+  - The Vite alias is conditional — only applied when `command === 'serve'`
+    (dev mode). During `vite build`, the alias is absent and the
+    npm/GitHub-installed package is used instead.
 
 ### `.gitignore` (SvelteKit + Supabase essentials)
 ```
@@ -72,13 +78,16 @@ Vercel handles deploy on merge to `main`; PRs get preview URLs automatically.
 
 ## Tasks
 
-1. `git init` in `dnanything/`, create the GitHub repo, push initial commit.
-2. Add `.gitignore`, `.env.example`, `README.md` (with logo + setup steps).
-3. Add `AGENTS.md` (project guide for agents, mirroring fo4-tools' style).
-4. Add `.github/workflows/ci.yml` (check + unit + e2e + build).
-5. Install `@sveltejs/adapter-vercel`; configure `svelte.config.js`.
-6. Connect the GitHub repo to Vercel; set env vars (Supabase keys, OAuth).
-7. Configure GitHub OAuth app with the Vercel callback URL.
+1. [x] `git init` in `dnanything/`, create the GitHub repo, push initial commit.
+2. [x] Add `.gitignore`, `.env.example`, `README.md` (with logo + setup steps).
+3. [x] Add `AGENTS.md` (project guide for agents, mirroring fo4-tools' style).
+4. [ ] Add `.github/workflows/ci.yml` (check + unit + e2e + build).
+5. [x] Install `@sveltejs/adapter-vercel`; configure `svelte.config.js`.
+6. [ ] Connect the GitHub repo to Vercel; set env vars (Supabase keys, OAuth).
+7. [ ] Configure GitHub OAuth app with the Vercel callback URL.
+8. [x] Add `twintrinsic` as a GitHub dependency in `package.json`.
+9. [x] Make Vite alias conditional (dev only) so production builds use the npm package.
+10. [x] Update twintrinsic's `prepare` script to build `dist/` on install.
 
 ## Open Questions
 

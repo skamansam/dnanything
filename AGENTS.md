@@ -24,10 +24,11 @@ Use `pnpm` to run the scripts below:
 | `pnpm lint` / `pnpm format` | Biome lint/format. |
 
 ## Twintrinsic Integration
-- **Path alias**: Vite resolves `twintrinsic` to `../twintrinsic/src/lib` (see `vite.config.ts`).
-- **Watch mode**: Vite watches both `src/` and `../twintrinsic/` for hot reload.
+- **Dev mode**: Vite resolves `twintrinsic` to `../twintrinsic/src/lib` (local source, hot reload). The alias is conditional — only applied when `command === 'serve'`.
+- **Production (Vercel)**: `twintrinsic` is installed from GitHub (`"github:skamansam/twintrinsic"` in `package.json`). Vercel clones the repo and runs its `prepare` script to build `dist/`.
+- **Watch mode**: Vite watches both `src/` and `../twintrinsic/` for hot reload in dev.
 - **Imports**: `import { App, Button, Card } from 'twintrinsic'`.
-- **Theme**: Theme tokens defined in `src/app.css` using `@theme`; DNA-inspired green palette by default.
+- **Theme**: Theme tokens defined in `src/app.css` using `@theme`; wine/burgundy palette by default.
 
 ## Architecture Notes
 - **GA engine** (`src/lib/ga/`): Pure TypeScript, no framework deps. Seeded PRNG for deterministic tests. See `docs/plans/CORE_GENETIC_ALGORITHM.md`.
