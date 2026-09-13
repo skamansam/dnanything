@@ -1,0 +1,202 @@
+[
+  {
+    "id": "changelog-0001",
+    "entityType": "type",
+    "entityId": "type-music",
+    "action": "create",
+    "userId": "user-local-001",
+    "snapshot": {},
+    "summary": "Created the Music type with 16 attributes and 5 fields",
+    "createdAt": "2026-01-15T10:30:00.000Z"
+  },
+  {
+    "id": "changelog-0002",
+    "entityType": "type",
+    "entityId": "type-books",
+    "action": "create",
+    "userId": "user-local-001",
+    "snapshot": {},
+    "summary": "Created the Books type with Dewey Decimal subcategories",
+    "createdAt": "2026-01-15T11:00:00.000Z"
+  },
+  {
+    "id": "changelog-0003",
+    "entityType": "type",
+    "entityId": "type-wine",
+    "action": "create",
+    "userId": "user-local-002",
+    "snapshot": {},
+    "summary": "Created the Wine type with 15 attributes",
+    "createdAt": "2026-01-16T12:30:00.000Z"
+  },
+  {
+    "id": "changelog-0004",
+    "entityType": "item",
+    "entityId": "item-mus-0001",
+    "action": "create",
+    "userId": "user-local-001",
+    "snapshot": {},
+    "summary": "Added The Dark Side of the Moon by Pink Floyd",
+    "createdAt": "2026-01-15T14:00:00.000Z"
+  },
+  {
+    "id": "changelog-0005",
+    "entityType": "item",
+    "entityId": "item-mus-0002",
+    "action": "create",
+    "userId": "user-local-003",
+    "snapshot": {},
+    "summary": "Added Nevermind by Nirvana",
+    "createdAt": "2026-01-17T10:00:00.000Z"
+  },
+  {
+    "id": "changelog-0006",
+    "entityType": "item",
+    "entityId": "item-bok-0001",
+    "action": "create",
+    "userId": "user-local-001",
+    "snapshot": {},
+    "summary": "Added Dune by Frank Herbert",
+    "createdAt": "2026-01-15T15:00:00.000Z"
+  },
+  {
+    "id": "changelog-0007",
+    "entityType": "item",
+    "entityId": "item-win-0001",
+    "action": "create",
+    "userId": "user-local-002",
+    "snapshot": {},
+    "summary": "Added Château Margaux 2015",
+    "createdAt": "2026-01-16T13:00:00.000Z"
+  },
+  {
+    "id": "changelog-0008",
+    "entityType": "item",
+    "entityId": "item-mov-0001",
+    "action": "create",
+    "userId": "user-local-004",
+    "snapshot": {},
+    "summary": "Added Blade Runner 2049",
+    "createdAt": "2026-01-18T15:00:00.000Z"
+  },
+  {
+    "id": "changelog-0009",
+    "entityType": "item",
+    "entityId": "item-mus-0001",
+    "action": "update",
+    "userId": "user-local-003",
+    "snapshot": {},
+    "summary": "Updated metadata: corrected release year to 1973",
+    "createdAt": "2026-01-19T09:00:00.000Z"
+  },
+  {
+    "id": "changelog-0010",
+    "entityType": "item",
+    "entityId": "item-bok-0001",
+    "action": "update",
+    "userId": "user-local-002",
+    "snapshot": {},
+    "summary": "Updated description and subcategories",
+    "createdAt": "2026-01-20T11:00:00.000Z"
+  },
+  {
+    "id": "changelog-0011",
+    "entityType": "rating",
+    "entityId": "rating-0001",
+    "action": "create",
+    "userId": "user-local-001",
+    "snapshot": {},
+    "summary": "Rated The Dark Side of the Moon",
+    "createdAt": "2026-01-20T10:00:00.000Z"
+  },
+  {
+    "id": "changelog-0012",
+    "entityType": "review",
+    "entityId": "review-0001",
+    "action": "create",
+    "userId": "user-local-001",
+    "snapshot": {},
+    "summary": "Reviewed The Dark Side of the Moon",
+    "createdAt": "2026-01-20T10:00:00.000Z"
+  },
+  {
+    "id": "changelog-0013",
+    "entityType": "review",
+    "entityId": "review-0003",
+    "action": "create",
+    "userId": "user-local-001",
+    "snapshot": {},
+    "summary": "Reviewed Dune",
+    "createdAt": "2026-01-21T10:00:00.000Z"
+  },
+  {
+    "id": "changelog-0014",
+    "entityType": "recommendation",
+    "entityId": "rec-0001",
+    "action": "create",
+    "userId": "user-local-001",
+    "snapshot": {},
+    "summary": "Recommended Random Access Memories for fans of The Dark Side of the Moon",
+    "createdAt": "2026-01-20T12:00:00.000Z"
+  },
+  {
+    "id": "changelog-0015",
+    "entityType": "item",
+    "entityId": "item-mov-0002",
+    "action": "create",
+    "userId": "user-local-004",
+    "snapshot": {},
+    "summary": "Added The Big Lebowski",
+    "createdAt": "2026-01-18T16:00:00.000Z"
+  },
+  {
+    "id": "changelog-0016",
+    "entityType": "type",
+    "entityId": "type-movies",
+    "action": "create",
+    "userId": "user-local-004",
+    "snapshot": {},
+    "summary": "Created the Movies type with 10 subcategories",
+    "createdAt": "2026-01-18T14:30:00.000Z"
+  },
+  {
+    "id": "changelog-0017",
+    "entityType": "type",
+    "entityId": "type-beer",
+    "action": "create",
+    "userId": "user-local-003",
+    "snapshot": {},
+    "summary": "Created the Beer type with 8 subcategories",
+    "createdAt": "2026-01-17T09:30:00.000Z"
+  },
+  {
+    "id": "changelog-0018",
+    "entityType": "item",
+    "entityId": "item-ber-0001",
+    "action": "create",
+    "userId": "user-local-003",
+    "snapshot": {},
+    "summary": "Added Pliny the Elder IPA",
+    "createdAt": "2026-01-17T11:00:00.000Z"
+  },
+  {
+    "id": "changelog-0019",
+    "entityType": "item",
+    "entityId": "item-ber-0002",
+    "action": "create",
+    "userId": "user-local-003",
+    "snapshot": {},
+    "summary": "Added Guinness Draught Stout",
+    "createdAt": "2026-01-17T11:30:00.000Z"
+  },
+  {
+    "id": "changelog-0020",
+    "entityType": "item",
+    "entityId": "item-win-0002",
+    "action": "create",
+    "userId": "user-local-002",
+    "snapshot": {},
+    "summary": "Added Cloudy Bay Sauvignon Blanc",
+    "createdAt": "2026-01-16T13:30:00.000Z"
+  }
+]

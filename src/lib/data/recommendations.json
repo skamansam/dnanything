@@ -1,0 +1,42 @@
+[
+  {
+    "id": "rec-0001",
+    "itemId": "item-mus-0003",
+    "targetItemId": "item-mus-0001",
+    "userId": "user-local-001",
+    "reason": "If you like the atmospheric production of Dark Side of the Moon, Random Access Memories explores similar electronic textures with a different palette.",
+    "createdAt": "2026-01-20T12:00:00.000Z"
+  },
+  {
+    "id": "rec-0002",
+    "itemId": "item-mus-0004",
+    "targetItemId": "item-mus-0001",
+    "userId": "user-local-001",
+    "reason": "Back to Black shares the same meticulous production values, but with a soul/R&B lens instead of progressive rock.",
+    "createdAt": "2026-01-20T13:00:00.000Z"
+  },
+  {
+    "id": "rec-0003",
+    "itemId": "item-bok-0002",
+    "targetItemId": "item-bok-0001",
+    "userId": "user-local-001",
+    "reason": "After the weight of Dune, Hitchhiker's Guide is the perfect palate cleanser — same sci-fi setting, opposite tone.",
+    "createdAt": "2026-01-21T11:00:00.000Z"
+  },
+  {
+    "id": "rec-0004",
+    "itemId": "item-win-0002",
+    "targetItemId": "item-win-0001",
+    "userId": "user-local-001",
+    "reason": "If you appreciate the complexity of the Margaux, try the Cloudy Bay for a completely different but equally well-crafted white.",
+    "createdAt": "2026-01-22T11:00:00.000Z"
+  },
+  {
+    "id": "rec-0005",
+    "itemId": "item-mov-0002",
+    "targetItemId": "item-mov-0001",
+    "userId": "user-local-001",
+    "reason": "After the intensity of Blade Runner 2049, The Big Lebowski is the perfect counterbalance — same era of LA, completely different energy.",
+    "createdAt": "2026-01-23T11:00:00.000Z"
+  }
+]

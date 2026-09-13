@@ -1,0 +1,52 @@
+[
+  {
+    "id": "review-0001",
+    "itemId": "item-mus-0001",
+    "userId": "user-local-001",
+    "title": "A masterclass in atmosphere",
+    "body": "Dark Side of the Moon remains one of the most meticulously crafted albums in rock history. Every sound feels intentional, from the ticking clocks to the soaring saxophone. The production is decades ahead of its time.",
+    "score": 5,
+    "createdAt": "2026-01-20T10:00:00.000Z",
+    "updatedAt": "2026-01-20T10:00:00.000Z"
+  },
+  {
+    "id": "review-0002",
+    "itemId": "item-mus-0002",
+    "userId": "user-local-001",
+    "title": "Raw and explosive",
+    "body": "Nevermind changed the landscape of popular music overnight. The raw energy of Smells Like Teen Spirit is undeniable, but the deeper cuts like Drain You and Lounge Act show real songwriting craft beneath the distortion.",
+    "score": 4,
+    "createdAt": "2026-01-20T11:00:00.000Z",
+    "updatedAt": "2026-01-20T11:00:00.000Z"
+  },
+  {
+    "id": "review-0003",
+    "itemId": "item-bok-0001",
+    "userId": "user-local-001",
+    "title": "World-building without peer",
+    "body": "Herbert's Arrakis is one of the most fully realized fictional worlds ever committed to print. The political intrigue, ecological themes, and mythic scope combine into something that transcends genre. The pacing can drag in the middle sections, but the payoff is worth it.",
+    "score": 5,
+    "createdAt": "2026-01-21T10:00:00.000Z",
+    "updatedAt": "2026-01-21T10:00:00.000Z"
+  },
+  {
+    "id": "review-0004",
+    "itemId": "item-win-0001",
+    "userId": "user-local-001",
+    "title": "Elegant and age-worthy",
+    "body": "The 2015 Margaux is a stunning example of a first-growth Bordeaux. The tannin structure is firm but velvety, with layered fruit and a finish that goes on forever. Worth every penny if you can find it.",
+    "score": 5,
+    "createdAt": "2026-01-22T10:00:00.000Z",
+    "updatedAt": "2026-01-22T10:00:00.000Z"
+  },
+  {
+    "id": "review-0005",
+    "itemId": "item-mov-0001",
+    "userId": "user-local-001",
+    "title": "A visual symphony",
+    "body": "Villeneuve crafts a sequel that honors the original while forging its own identity. The cinematography is jaw-dropping, and the sound design is an experience in itself. The pacing is deliberate, which may not suit everyone, but it rewards patience.",
+    "score": 5,
+    "createdAt": "2026-01-23T10:00:00.000Z",
+    "updatedAt": "2026-01-23T10:00:00.000Z"
+  }
+]

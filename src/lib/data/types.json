@@ -1,0 +1,754 @@
+[
+  {
+    "id": "type-music",
+    "slug": "music",
+    "name": "Music",
+    "description": "Songs and albums rated across vocal, instrumental, and production attributes. From synth-pop to metal, every track is a genome of sonic characteristics.",
+    "attributes": [
+      {
+        "id": "female_vocals",
+        "name": "Female Vocals",
+        "description": "Presence and prominence of female vocal performance"
+      },
+      {
+        "id": "male_vocals",
+        "name": "Male Vocals",
+        "description": "Presence and prominence of male vocal performance"
+      },
+      {
+        "id": "heavy_beats",
+        "name": "Heavy Beats",
+        "description": "Driving, percussive rhythm intensity"
+      },
+      {
+        "id": "violin",
+        "name": "Violin",
+        "description": "String section or solo violin presence"
+      },
+      {
+        "id": "synth",
+        "name": "Synth Layers",
+        "description": "Electronic synthesizer texture and layering"
+      },
+      {
+        "id": "bass_guitar",
+        "name": "Bass Guitar",
+        "description": "Bass guitar prominence and groove"
+      },
+      {
+        "id": "guitar_solo",
+        "name": "Guitar Solo",
+        "description": "Featured guitar solo or riff work"
+      },
+      {
+        "id": "reverb",
+        "name": "Reverb",
+        "description": "Reverberant, spacious production quality"
+      },
+      {
+        "id": "distortion",
+        "name": "Distortion",
+        "description": "Distorted, overdriven guitar or bass tone"
+      },
+      {
+        "id": "acoustic",
+        "name": "Acoustic",
+        "description": "Unplugged, acoustic instrumentation"
+      },
+      {
+        "id": "tempo",
+        "name": "Tempo",
+        "description": "Overall pace and energy level"
+      },
+      {
+        "id": "melodic",
+        "name": "Melodic",
+        "description": "Melodic content and hook strength"
+      },
+      {
+        "id": "ambient",
+        "name": "Ambient",
+        "description": "Atmospheric, soundscape quality"
+      },
+      {
+        "id": "electronic",
+        "name": "Electronic",
+        "description": "Electronic production and programming"
+      },
+      {
+        "id": "orchestral",
+        "name": "Orchestral",
+        "description": "Full orchestral or symphonic arrangement"
+      },
+      {
+        "id": "improvisation",
+        "name": "Improvisation",
+        "description": "Improvised, jam-like sections"
+      }
+    ],
+    "fields": [
+      {
+        "id": "artist",
+        "name": "Artist",
+        "required": true
+      },
+      {
+        "id": "year",
+        "name": "Year"
+      },
+      {
+        "id": "label",
+        "name": "Label"
+      },
+      {
+        "id": "format",
+        "name": "Format"
+      },
+      {
+        "id": "duration",
+        "name": "Duration"
+      }
+    ],
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategories": [
+      {
+        "id": "band",
+        "name": "Band"
+      },
+      {
+        "id": "album",
+        "name": "Album"
+      },
+      {
+        "id": "song",
+        "name": "Song"
+      },
+      {
+        "id": "solo_artist",
+        "name": "Solo Artist"
+      },
+      {
+        "id": "soundtrack",
+        "name": "Soundtrack"
+      },
+      {
+        "id": "live",
+        "name": "Live Recording"
+      },
+      {
+        "id": "compilation",
+        "name": "Compilation"
+      },
+      {
+        "id": "ep",
+        "name": "EP"
+      }
+    ],
+    "updatedByUserId": null
+  },
+  {
+    "id": "type-books",
+    "slug": "books",
+    "name": "Books",
+    "description": "Novels and non-fiction rated across prose, plot, character, and world-building attributes. Every book is a genome of literary DNA.",
+    "attributes": [
+      {
+        "id": "prose_density",
+        "name": "Prose Density",
+        "description": "Richness and complexity of the prose style"
+      },
+      {
+        "id": "plot_complexity",
+        "name": "Plot Complexity",
+        "description": "Intricacy of the narrative structure"
+      },
+      {
+        "id": "character_dev",
+        "name": "Character Development",
+        "description": "Depth and growth of characters"
+      },
+      {
+        "id": "world_building",
+        "name": "World Building",
+        "description": "Detail and immersion of the setting"
+      },
+      {
+        "id": "pacing",
+        "name": "Pacing",
+        "description": "Speed and rhythm of the narrative"
+      },
+      {
+        "id": "dialogue",
+        "name": "Dialogue",
+        "description": "Quality and quantity of dialogue"
+      },
+      {
+        "id": "action",
+        "name": "Action",
+        "description": "Action and conflict sequences"
+      },
+      {
+        "id": "humor",
+        "name": "Humor",
+        "description": "Comedic elements and wit"
+      },
+      {
+        "id": "philosophy",
+        "name": "Philosophy",
+        "description": "Philosophical or thematic depth"
+      },
+      {
+        "id": "romance",
+        "name": "Romance",
+        "description": "Romantic subplot presence"
+      },
+      {
+        "id": "mystery",
+        "name": "Mystery",
+        "description": "Mystery and suspense elements"
+      },
+      {
+        "id": "horror",
+        "name": "Horror",
+        "description": "Frightening or unsettling content"
+      },
+      {
+        "id": "magical_realism",
+        "name": "Magical Realism",
+        "description": "Blending of magical elements with realism"
+      },
+      {
+        "id": "historical",
+        "name": "Historical",
+        "description": "Historical setting and accuracy"
+      },
+      {
+        "id": "experimental",
+        "name": "Experimental",
+        "description": "Formal experimentation and innovation"
+      },
+      {
+        "id": "length",
+        "name": "Length",
+        "description": "Overall length and scope"
+      }
+    ],
+    "fields": [
+      {
+        "id": "author",
+        "name": "Author",
+        "required": true
+      },
+      {
+        "id": "year",
+        "name": "Year"
+      },
+      {
+        "id": "publisher",
+        "name": "Publisher"
+      },
+      {
+        "id": "pages",
+        "name": "Pages"
+      },
+      {
+        "id": "isbn",
+        "name": "ISBN"
+      }
+    ],
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategories": [
+      {
+        "id": "fiction",
+        "name": "Fiction"
+      },
+      {
+        "id": "nonfiction",
+        "name": "Non-Fiction"
+      },
+      {
+        "id": "poetry",
+        "name": "Poetry"
+      },
+      {
+        "id": "drama",
+        "name": "Drama"
+      },
+      {
+        "id": "short_stories",
+        "name": "Short Stories"
+      },
+      {
+        "id": "anthology",
+        "name": "Anthology"
+      },
+      {
+        "id": "dewey_000",
+        "name": "Computer Science & Information"
+      },
+      {
+        "id": "dewey_100",
+        "name": "Philosophy & Psychology"
+      },
+      {
+        "id": "dewey_200",
+        "name": "Religion"
+      },
+      {
+        "id": "dewey_300",
+        "name": "Social Sciences"
+      },
+      {
+        "id": "dewey_400",
+        "name": "Language"
+      },
+      {
+        "id": "dewey_500",
+        "name": "Pure Science"
+      },
+      {
+        "id": "dewey_600",
+        "name": "Applied Science & Technology"
+      },
+      {
+        "id": "dewey_700",
+        "name": "Arts & Recreation"
+      },
+      {
+        "id": "dewey_800",
+        "name": "Literature"
+      },
+      {
+        "id": "dewey_900",
+        "name": "History & Geography"
+      }
+    ],
+    "updatedByUserId": null
+  },
+  {
+    "id": "type-wine",
+    "slug": "wine",
+    "name": "Wine",
+    "description": "Wines rated across body, tannin, acidity, sweetness, and finish attributes. Every bottle is a genome of terroir and craft.",
+    "attributes": [
+      {
+        "id": "tannin",
+        "name": "Tannin",
+        "description": "Astringency and tannin structure"
+      },
+      {
+        "id": "acidity",
+        "name": "Acidity",
+        "description": "Crispness and acid balance"
+      },
+      {
+        "id": "body",
+        "name": "Body",
+        "description": "Weight and fullness on the palate"
+      },
+      {
+        "id": "sweetness",
+        "name": "Sweetness",
+        "description": "Residual sugar and perceived sweetness"
+      },
+      {
+        "id": "finish",
+        "name": "Finish",
+        "description": "Length and complexity of the finish"
+      },
+      {
+        "id": "fruit",
+        "name": "Fruit",
+        "description": "Fruit forwardness and flavor intensity"
+      },
+      {
+        "id": "oak",
+        "name": "Oak",
+        "description": "Oak aging influence and toast"
+      },
+      {
+        "id": "earth",
+        "name": "Earth",
+        "description": "Earthy, mineral, or terroir notes"
+      },
+      {
+        "id": "spice",
+        "name": "Spice",
+        "description": "Spicy, peppery characteristics"
+      },
+      {
+        "id": "floral",
+        "name": "Floral",
+        "description": "Floral aromas and bouquet"
+      },
+      {
+        "id": "alcohol",
+        "name": "Alcohol",
+        "description": "Perceived alcohol warmth"
+      },
+      {
+        "id": "complexity",
+        "name": "Complexity",
+        "description": "Layered, multi-dimensional character"
+      },
+      {
+        "id": "minerality",
+        "name": "Minerality",
+        "description": "Mineral, stony qualities"
+      },
+      {
+        "id": "herbal",
+        "name": "Herbal",
+        "description": "Herbaceous, vegetal notes"
+      }
+    ],
+    "fields": [
+      {
+        "id": "winery",
+        "name": "Winery",
+        "required": true
+      },
+      {
+        "id": "vintage",
+        "name": "Vintage"
+      },
+      {
+        "id": "region",
+        "name": "Region"
+      },
+      {
+        "id": "varietal",
+        "name": "Varietal"
+      },
+      {
+        "id": "abv",
+        "name": "ABV"
+      }
+    ],
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategories": [
+      {
+        "id": "red",
+        "name": "Red"
+      },
+      {
+        "id": "white",
+        "name": "White"
+      },
+      {
+        "id": "rose",
+        "name": "Rosé"
+      },
+      {
+        "id": "sparkling",
+        "name": "Sparkling"
+      },
+      {
+        "id": "fortified",
+        "name": "Fortified"
+      },
+      {
+        "id": "dessert",
+        "name": "Dessert Wine"
+      }
+    ],
+    "updatedByUserId": null
+  },
+  {
+    "id": "type-beer",
+    "slug": "beer",
+    "name": "Beer",
+    "description": "Beers rated across hops, malt, bitterness, body, and aroma attributes. Every pour is a genome of brewing DNA.",
+    "attributes": [
+      {
+        "id": "hops",
+        "name": "Hops",
+        "description": "Hop intensity and character"
+      },
+      {
+        "id": "malt",
+        "name": "Malt",
+        "description": "Malt sweetness and backbone"
+      },
+      {
+        "id": "bitterness",
+        "name": "Bitterness",
+        "description": "Perceived bitterness (IBU influence)"
+      },
+      {
+        "id": "body",
+        "name": "Body",
+        "description": "Mouthfeel and fullness"
+      },
+      {
+        "id": "aroma",
+        "name": "Aroma",
+        "description": "Aromatic complexity and intensity"
+      },
+      {
+        "id": "carbonation",
+        "name": "Carbonation",
+        "description": "Effervescence and head retention"
+      },
+      {
+        "id": "sweetness",
+        "name": "Sweetness",
+        "description": "Residual sweetness"
+      },
+      {
+        "id": "roast",
+        "name": "Roast",
+        "description": "Roasted, toasted malt character"
+      },
+      {
+        "id": "fruit",
+        "name": "Fruit",
+        "description": "Fruity esters or added fruit"
+      },
+      {
+        "id": "spice",
+        "name": "Spice",
+        "description": "Spiced or herbal additions"
+      },
+      {
+        "id": "sour",
+        "name": "Sour",
+        "description": "Tartness and acidity"
+      },
+      {
+        "id": "smoke",
+        "name": "Smoke",
+        "description": "Smoky, phenolic character"
+      },
+      {
+        "id": "alcohol",
+        "name": "Alcohol",
+        "description": "Alcohol warmth (ABV)"
+      },
+      {
+        "id": "clarity",
+        "name": "Clarity",
+        "description": "Visual clarity and color"
+      }
+    ],
+    "fields": [
+      {
+        "id": "brewery",
+        "name": "Brewery",
+        "required": true
+      },
+      {
+        "id": "style",
+        "name": "Style"
+      },
+      {
+        "id": "abv",
+        "name": "ABV"
+      },
+      {
+        "id": "ibu",
+        "name": "IBU"
+      },
+      {
+        "id": "origin",
+        "name": "Origin"
+      }
+    ],
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategories": [
+      {
+        "id": "ale",
+        "name": "Ale"
+      },
+      {
+        "id": "lager",
+        "name": "Lager"
+      },
+      {
+        "id": "stout",
+        "name": "Stout"
+      },
+      {
+        "id": "porter",
+        "name": "Porter"
+      },
+      {
+        "id": "ipa",
+        "name": "IPA"
+      },
+      {
+        "id": "sour",
+        "name": "Sour"
+      },
+      {
+        "id": "wheat",
+        "name": "Wheat"
+      },
+      {
+        "id": "pilsner",
+        "name": "Pilsner"
+      }
+    ],
+    "updatedByUserId": null
+  },
+  {
+    "id": "type-movies",
+    "slug": "movies",
+    "name": "Movies",
+    "description": "Films rated across acting, cinematography, score, pacing, and narrative attributes. Every film is a genome of cinematic DNA.",
+    "attributes": [
+      {
+        "id": "acting",
+        "name": "Acting",
+        "description": "Quality and intensity of performances"
+      },
+      {
+        "id": "cinematography",
+        "name": "Cinematography",
+        "description": "Visual composition and camera work"
+      },
+      {
+        "id": "score",
+        "name": "Score",
+        "description": "Musical score and soundtrack prominence"
+      },
+      {
+        "id": "pacing",
+        "name": "Pacing",
+        "description": "Narrative rhythm and flow"
+      },
+      {
+        "id": "action",
+        "name": "Action",
+        "description": "Action and set-piece sequences"
+      },
+      {
+        "id": "dialogue",
+        "name": "Dialogue",
+        "description": "Dialogue quality and density"
+      },
+      {
+        "id": "humor",
+        "name": "Humor",
+        "description": "Comedic elements"
+      },
+      {
+        "id": "drama",
+        "name": "Drama",
+        "description": "Emotional drama and tension"
+      },
+      {
+        "id": "horror",
+        "name": "Horror",
+        "description": "Frightening or suspenseful content"
+      },
+      {
+        "id": "vfx",
+        "name": "Visual Effects",
+        "description": "CGI and visual effects quality"
+      },
+      {
+        "id": "world_building",
+        "name": "World Building",
+        "description": "Setting detail and immersion"
+      },
+      {
+        "id": "character_dev",
+        "name": "Character Development",
+        "description": "Character arcs and growth"
+      },
+      {
+        "id": "twist",
+        "name": "Plot Twist",
+        "description": "Surprising narrative turns"
+      },
+      {
+        "id": "atmosphere",
+        "name": "Atmosphere",
+        "description": "Mood and atmospheric tone"
+      },
+      {
+        "id": "nostalgia",
+        "name": "Nostalgia",
+        "description": "Nostalgic or sentimental appeal"
+      }
+    ],
+    "fields": [
+      {
+        "id": "director",
+        "name": "Director",
+        "required": true
+      },
+      {
+        "id": "year",
+        "name": "Year"
+      },
+      {
+        "id": "studio",
+        "name": "Studio"
+      },
+      {
+        "id": "runtime",
+        "name": "Runtime"
+      },
+      {
+        "id": "rating",
+        "name": "MPAA Rating"
+      }
+    ],
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategories": [
+      {
+        "id": "feature",
+        "name": "Feature Film"
+      },
+      {
+        "id": "documentary",
+        "name": "Documentary"
+      },
+      {
+        "id": "short_film",
+        "name": "Short Film"
+      },
+      {
+        "id": "animated",
+        "name": "Animated"
+      },
+      {
+        "id": "series",
+        "name": "Series"
+      },
+      {
+        "id": "action",
+        "name": "Action"
+      },
+      {
+        "id": "comedy",
+        "name": "Comedy"
+      },
+      {
+        "id": "drama",
+        "name": "Drama"
+      },
+      {
+        "id": "horror",
+        "name": "Horror"
+      },
+      {
+        "id": "scifi",
+        "name": "Science Fiction"
+      }
+    ],
+    "updatedByUserId": null
+  }
+]

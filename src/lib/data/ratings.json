@@ -1,0 +1,58 @@
+[
+  {
+    "id": "rating-0001",
+    "itemId": "item-mus-0001",
+    "userId": "user-local-001",
+    "values": { "synth": 4.5, "bass_guitar": 4.0, "melodic": 5.0, "reverb": 4.0, "tempo": 3.0, "ambient": 4.0, "electronic": 3.5, "guitar_solo": 4.0, "female_vocals": 0.5, "male_vocals": 3.0, "heavy_beats": 3.0, "violin": 0.0, "distortion": 1.5, "acoustic": 0.5, "orchestral": 1.0, "improvisation": 2.5 },
+    "createdAt": "2026-01-15T10:00:00.000Z",
+    "updatedAt": "2026-01-15T10:00:00.000Z"
+  },
+  {
+    "id": "rating-0002",
+    "itemId": "item-mus-0002",
+    "userId": "user-local-001",
+    "values": { "distortion": 5.0, "guitar_solo": 4.0, "heavy_beats": 4.5, "male_vocals": 5.0, "bass_guitar": 4.0, "tempo": 4.0, "melodic": 4.0, "reverb": 2.5, "female_vocals": 0.0, "violin": 0.0, "synth": 0.0, "acoustic": 1.0, "ambient": 0.5, "electronic": 0.0, "orchestral": 0.0, "improvisation": 1.5 },
+    "createdAt": "2026-01-15T11:00:00.000Z",
+    "updatedAt": "2026-01-15T11:00:00.000Z"
+  },
+  {
+    "id": "rating-0003",
+    "itemId": "item-mus-0003",
+    "userId": "user-local-001",
+    "values": { "synth": 5.0, "electronic": 5.0, "bass_guitar": 4.0, "heavy_beats": 4.5, "melodic": 5.0, "female_vocals": 3.0, "male_vocals": 4.0, "reverb": 4.0, "tempo": 3.5, "ambient": 2.0, "guitar_solo": 1.5, "distortion": 0.0, "violin": 0.5, "acoustic": 1.0, "orchestral": 1.5, "improvisation": 0.5 },
+    "createdAt": "2026-01-15T12:00:00.000Z",
+    "updatedAt": "2026-01-15T12:00:00.000Z"
+  },
+  {
+    "id": "rating-0004",
+    "itemId": "item-bok-0001",
+    "userId": "user-local-001",
+    "values": { "world_building": 5.0, "plot_complexity": 4.5, "character_dev": 4.0, "pacing": 3.0, "prose_density": 4.0, "philosophy": 4.5, "action": 3.5, "dialogue": 3.0, "humor": 0.5, "romance": 1.5, "mystery": 3.0, "horror": 1.0, "magical_realism": 2.5, "historical": 1.0, "experimental": 1.5, "length": 4.5 },
+    "createdAt": "2026-01-16T10:00:00.000Z",
+    "updatedAt": "2026-01-16T10:00:00.000Z"
+  },
+  {
+    "id": "rating-0005",
+    "itemId": "item-win-0001",
+    "userId": "user-local-001",
+    "values": { "tannin": 4.5, "acidity": 3.5, "body": 4.5, "sweetness": 1.0, "finish": 5.0, "fruit": 4.0, "oak": 4.0, "earth": 3.5, "spice": 2.5, "floral": 3.0, "alcohol": 3.0, "complexity": 5.0, "minerality": 3.0, "herbal": 2.0 },
+    "createdAt": "2026-01-17T10:00:00.000Z",
+    "updatedAt": "2026-01-17T10:00:00.000Z"
+  },
+  {
+    "id": "rating-0006",
+    "itemId": "item-ber-0001",
+    "userId": "user-local-001",
+    "values": { "hops": 5.0, "bitterness": 5.0, "aroma": 5.0, "body": 3.5, "malt": 3.0, "carbonation": 4.0, "sweetness": 0.5, "roast": 0.0, "fruit": 3.0, "spice": 0.5, "sour": 0.0, "smoke": 0.0, "alcohol": 4.0, "clarity": 4.5 },
+    "createdAt": "2026-01-18T10:00:00.000Z",
+    "updatedAt": "2026-01-18T10:00:00.000Z"
+  },
+  {
+    "id": "rating-0007",
+    "itemId": "item-mov-0001",
+    "userId": "user-local-001",
+    "values": { "cinematography": 5.0, "atmosphere": 5.0, "world_building": 5.0, "score": 4.5, "vfx": 5.0, "acting": 4.0, "pacing": 3.0, "action": 3.5, "dialogue": 3.5, "humor": 0.5, "drama": 4.0, "horror": 1.5, "character_dev": 4.0, "twist": 3.5, "nostalgia": 3.0 },
+    "createdAt": "2026-01-19T10:00:00.000Z",
+    "updatedAt": "2026-01-19T10:00:00.000Z"
+  }
+]

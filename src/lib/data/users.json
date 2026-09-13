@@ -1,0 +1,26 @@
+[
+  {
+    "id": "user-local-001",
+    "displayName": "Sam Kaman",
+    "avatarUrl": null,
+    "createdAt": "2026-01-15T10:00:00.000Z"
+  },
+  {
+    "id": "user-local-002",
+    "displayName": "Marina Voss",
+    "avatarUrl": null,
+    "createdAt": "2026-01-16T12:00:00.000Z"
+  },
+  {
+    "id": "user-local-003",
+    "displayName": "Theo Park",
+    "avatarUrl": null,
+    "createdAt": "2026-01-17T09:00:00.000Z"
+  },
+  {
+    "id": "user-local-004",
+    "displayName": "Elena Ruiz",
+    "avatarUrl": null,
+    "createdAt": "2026-01-18T14:00:00.000Z"
+  }
+]

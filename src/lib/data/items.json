@@ -1,0 +1,494 @@
+[
+  {
+    "id": "item-mus-0001",
+    "typeId": "type-music",
+    "name": "The Dark Side of the Moon",
+    "description": "A concept album exploring themes of time, conflict, and madness, built on layered synths, saxophone, and atmospheric production.",
+    "metadata": {
+      "artist": "Pink Floyd",
+      "year": "1973",
+      "label": "Harvest Records",
+      "format": "Vinyl LP",
+      "duration": "42:50"
+    },
+    "averageRatings": {
+      "synth": 4.2,
+      "bass_guitar": 3.8,
+      "melodic": 4.5,
+      "reverb": 4.0,
+      "tempo": 3.0,
+      "ambient": 3.5,
+      "electronic": 3.2,
+      "guitar_solo": 4.1,
+      "female_vocals": 0.5,
+      "male_vocals": 3.0,
+      "heavy_beats": 2.8,
+      "violin": 0.2,
+      "distortion": 1.5,
+      "acoustic": 0.5,
+      "orchestral": 1.0,
+      "improvisation": 2.5
+    },
+    "ratingCount": 12,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "album",
+      "band"
+    ],
+    "averageReviewScore": 5.0,
+    "reviewCount": 1,
+    "updatedByUserId": "user-local-003"
+  },
+  {
+    "id": "item-mus-0002",
+    "typeId": "type-music",
+    "name": "Nevermind",
+    "description": "A defining grunge album with heavy guitar riffs, raw vocals, and explosive dynamic shifts.",
+    "metadata": {
+      "artist": "Nirvana",
+      "year": "1991",
+      "label": "DGC Records",
+      "format": "CD",
+      "duration": "49:05"
+    },
+    "averageRatings": {
+      "distortion": 4.8,
+      "guitar_solo": 3.5,
+      "heavy_beats": 4.2,
+      "male_vocals": 4.5,
+      "bass_guitar": 3.8,
+      "tempo": 4.0,
+      "melodic": 3.8,
+      "reverb": 2.5,
+      "female_vocals": 0.1,
+      "violin": 0.0,
+      "synth": 0.2,
+      "acoustic": 1.0,
+      "ambient": 0.5,
+      "electronic": 0.1,
+      "orchestral": 0.0,
+      "improvisation": 1.5
+    },
+    "ratingCount": 18,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "album",
+      "band"
+    ],
+    "averageReviewScore": 4.0,
+    "reviewCount": 1,
+    "updatedByUserId": null
+  },
+  {
+    "id": "item-mus-0003",
+    "typeId": "type-music",
+    "name": "Random Access Memories",
+    "description": "An electronic album blending disco, funk, and synth-pop with lush production and guest vocals.",
+    "metadata": {
+      "artist": "Daft Punk",
+      "year": "2013",
+      "label": "Columbia Records",
+      "format": "Digital",
+      "duration": "74:24"
+    },
+    "averageRatings": {
+      "synth": 4.8,
+      "electronic": 4.5,
+      "bass_guitar": 4.0,
+      "heavy_beats": 4.2,
+      "melodic": 4.6,
+      "female_vocals": 3.0,
+      "male_vocals": 3.5,
+      "reverb": 3.8,
+      "tempo": 3.5,
+      "ambient": 2.0,
+      "guitar_solo": 1.5,
+      "distortion": 0.2,
+      "violin": 0.5,
+      "acoustic": 0.8,
+      "orchestral": 1.2,
+      "improvisation": 0.5
+    },
+    "ratingCount": 9,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "album",
+      "band"
+    ],
+    "averageReviewScore": 0,
+    "reviewCount": 0,
+    "updatedByUserId": null
+  },
+  {
+    "id": "item-mus-0004",
+    "typeId": "type-music",
+    "name": "Back to Black",
+    "description": "A soul and R&B album with powerful female vocals, retro production, and brass-driven arrangements.",
+    "metadata": {
+      "artist": "Amy Winehouse",
+      "year": "2006",
+      "label": "Island Records",
+      "format": "CD",
+      "duration": "35:18"
+    },
+    "averageRatings": {
+      "female_vocals": 4.9,
+      "melodic": 4.3,
+      "bass_guitar": 3.5,
+      "reverb": 2.8,
+      "tempo": 3.2,
+      "male_vocals": 0.5,
+      "heavy_beats": 2.5,
+      "violin": 1.5,
+      "synth": 0.3,
+      "guitar_solo": 1.0,
+      "distortion": 0.2,
+      "acoustic": 1.5,
+      "ambient": 0.8,
+      "electronic": 0.2,
+      "orchestral": 1.8,
+      "improvisation": 2.0
+    },
+    "ratingCount": 7,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "album",
+      "solo_artist"
+    ],
+    "averageReviewScore": 0,
+    "reviewCount": 0,
+    "updatedByUserId": null
+  },
+  {
+    "id": "item-bok-0001",
+    "typeId": "type-books",
+    "name": "Dune",
+    "description": "An epic science fiction novel of political intrigue, ecology, and prophecy on the desert planet Arrakis.",
+    "metadata": {
+      "author": "Frank Herbert",
+      "year": "1965",
+      "publisher": "Chilton Books",
+      "pages": "688",
+      "isbn": "978-0441172719"
+    },
+    "averageRatings": {
+      "world_building": 4.8,
+      "plot_complexity": 4.5,
+      "character_dev": 4.0,
+      "pacing": 3.2,
+      "prose_density": 3.8,
+      "philosophy": 4.2,
+      "action": 3.5,
+      "dialogue": 3.0,
+      "humor": 0.5,
+      "romance": 1.5,
+      "mystery": 3.0,
+      "horror": 0.8,
+      "magical_realism": 2.5,
+      "historical": 1.0,
+      "experimental": 1.5,
+      "length": 4.5
+    },
+    "ratingCount": 15,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "fiction",
+      "dewey_800"
+    ],
+    "averageReviewScore": 5.0,
+    "reviewCount": 1,
+    "updatedByUserId": "user-local-002"
+  },
+  {
+    "id": "item-bok-0002",
+    "typeId": "type-books",
+    "name": "The Hitchhiker's Guide to the Galaxy",
+    "description": "A comedic science fiction novel following Arthur Dent through a chaotic universe after Earth's demolition.",
+    "metadata": {
+      "author": "Douglas Adams",
+      "year": "1979",
+      "publisher": "Pan Books",
+      "pages": "224",
+      "isbn": "978-0345391803"
+    },
+    "averageRatings": {
+      "humor": 4.9,
+      "world_building": 3.8,
+      "plot_complexity": 3.0,
+      "character_dev": 3.2,
+      "pacing": 3.8,
+      "prose_density": 3.5,
+      "philosophy": 3.0,
+      "action": 2.0,
+      "dialogue": 4.5,
+      "romance": 0.5,
+      "mystery": 1.5,
+      "horror": 0.2,
+      "magical_realism": 3.5,
+      "historical": 0.0,
+      "experimental": 3.0,
+      "length": 1.5
+    },
+    "ratingCount": 11,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "fiction",
+      "dewey_800"
+    ],
+    "averageReviewScore": 0,
+    "reviewCount": 0,
+    "updatedByUserId": null
+  },
+  {
+    "id": "item-win-0001",
+    "typeId": "type-wine",
+    "name": "Château Margaux 2015",
+    "description": "A first-growth Bordeaux with exceptional balance, deep fruit, and a long, velvety finish.",
+    "metadata": {
+      "winery": "Château Margaux",
+      "vintage": "2015",
+      "region": "Bordeaux, France",
+      "varietal": "Cabernet Sauvignon blend",
+      "abv": "13.5%"
+    },
+    "averageRatings": {
+      "tannin": 4.2,
+      "acidity": 3.5,
+      "body": 4.5,
+      "sweetness": 1.0,
+      "finish": 4.8,
+      "fruit": 4.0,
+      "oak": 3.8,
+      "earth": 3.5,
+      "spice": 2.5,
+      "floral": 3.0,
+      "alcohol": 3.0,
+      "complexity": 4.7,
+      "minerality": 3.2,
+      "herbal": 2.0
+    },
+    "ratingCount": 6,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "red"
+    ],
+    "averageReviewScore": 5.0,
+    "reviewCount": 1,
+    "updatedByUserId": null
+  },
+  {
+    "id": "item-win-0002",
+    "typeId": "type-wine",
+    "name": "Cloudy Bay Sauvignon Blanc 2022",
+    "description": "A crisp Marlborough Sauvignon Blanc with vibrant citrus, passionfruit, and herbal notes.",
+    "metadata": {
+      "winery": "Cloudy Bay",
+      "vintage": "2022",
+      "region": "Marlborough, New Zealand",
+      "varietal": "Sauvignon Blanc",
+      "abv": "13.0%"
+    },
+    "averageRatings": {
+      "acidity": 4.8,
+      "body": 2.0,
+      "sweetness": 1.5,
+      "finish": 3.5,
+      "fruit": 4.5,
+      "tannin": 0.2,
+      "oak": 0.5,
+      "earth": 1.5,
+      "spice": 0.8,
+      "floral": 3.5,
+      "alcohol": 2.0,
+      "complexity": 3.2,
+      "minerality": 3.8,
+      "herbal": 4.0
+    },
+    "ratingCount": 4,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "white"
+    ],
+    "averageReviewScore": 0,
+    "reviewCount": 0,
+    "updatedByUserId": null
+  },
+  {
+    "id": "item-ber-0001",
+    "typeId": "type-beer",
+    "name": "Pliny the Elder",
+    "description": "A double IPA with intense hop character, citrus and pine notes, and a dry, bitter finish.",
+    "metadata": {
+      "brewery": "Russian River Brewing",
+      "style": "Double IPA",
+      "abv": "8.0%",
+      "ibu": "100",
+      "origin": "Santa Rosa, CA"
+    },
+    "averageRatings": {
+      "hops": 4.9,
+      "bitterness": 4.8,
+      "aroma": 4.7,
+      "body": 3.5,
+      "malt": 3.0,
+      "carbonation": 3.8,
+      "sweetness": 0.5,
+      "roast": 0.2,
+      "fruit": 3.0,
+      "spice": 0.5,
+      "sour": 0.0,
+      "smoke": 0.0,
+      "alcohol": 4.0,
+      "clarity": 4.2
+    },
+    "ratingCount": 22,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "ipa",
+      "ale"
+    ],
+    "averageReviewScore": 0,
+    "reviewCount": 0,
+    "updatedByUserId": null
+  },
+  {
+    "id": "item-ber-0002",
+    "typeId": "type-beer",
+    "name": "Guinness Draught",
+    "description": "A classic dry stout with roasted barley, coffee notes, and a creamy nitrogen head.",
+    "metadata": {
+      "brewery": "St. James's Gate",
+      "style": "Dry Stout",
+      "abv": "4.2%",
+      "ibu": "45",
+      "origin": "Dublin, Ireland"
+    },
+    "averageRatings": {
+      "roast": 4.5,
+      "body": 4.0,
+      "bitterness": 3.5,
+      "malt": 3.8,
+      "carbonation": 2.5,
+      "hops": 2.0,
+      "aroma": 3.5,
+      "sweetness": 1.0,
+      "fruit": 0.5,
+      "spice": 0.2,
+      "sour": 0.0,
+      "smoke": 2.5,
+      "alcohol": 2.0,
+      "clarity": 3.0
+    },
+    "ratingCount": 14,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "stout",
+      "ale"
+    ],
+    "averageReviewScore": 0,
+    "reviewCount": 0,
+    "updatedByUserId": null
+  },
+  {
+    "id": "item-mov-0001",
+    "typeId": "type-movies",
+    "name": "Blade Runner 2049",
+    "description": "A visually stunning sequel exploring identity, memory, and humanity in a dystopian future.",
+    "metadata": {
+      "director": "Denis Villeneuve",
+      "year": "2017",
+      "studio": "Warner Bros",
+      "runtime": "164 min",
+      "rating": "R"
+    },
+    "averageRatings": {
+      "cinematography": 4.9,
+      "atmosphere": 4.8,
+      "world_building": 4.7,
+      "score": 4.5,
+      "vfx": 4.6,
+      "acting": 4.0,
+      "pacing": 3.2,
+      "action": 3.5,
+      "dialogue": 3.5,
+      "humor": 0.5,
+      "drama": 4.0,
+      "horror": 1.5,
+      "character_dev": 3.8,
+      "twist": 3.5,
+      "nostalgia": 3.0
+    },
+    "ratingCount": 8,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "feature",
+      "scifi"
+    ],
+    "averageReviewScore": 5.0,
+    "reviewCount": 1,
+    "updatedByUserId": null
+  },
+  {
+    "id": "item-mov-0002",
+    "typeId": "type-movies",
+    "name": "The Big Lebowski",
+    "description": "A crime comedy following the Dude, a laid-back slacker mistaken for a millionaire of the same name.",
+    "metadata": {
+      "director": "Coen Brothers",
+      "year": "1998",
+      "studio": "Gramercy Pictures",
+      "runtime": "117 min",
+      "rating": "R"
+    },
+    "averageRatings": {
+      "humor": 4.8,
+      "dialogue": 4.7,
+      "character_dev": 4.0,
+      "atmosphere": 3.5,
+      "acting": 4.2,
+      "cinematography": 3.5,
+      "score": 3.8,
+      "pacing": 3.8,
+      "action": 2.5,
+      "drama": 3.0,
+      "horror": 0.0,
+      "vfx": 1.0,
+      "world_building": 3.0,
+      "twist": 3.5,
+      "nostalgia": 4.5
+    },
+    "ratingCount": 13,
+    "createdByUserId": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "updatedAt": "2026-01-01T00:00:00.000Z",
+    "subcategoryIds": [
+      "feature",
+      "comedy"
+    ],
+    "averageReviewScore": 0,
+    "reviewCount": 0,
+    "updatedByUserId": null
+  }
+]
