@@ -65,6 +65,7 @@ export function createRepository(db: Db): Repository {
 					slug: input.slug,
 					name: input.name,
 					description: input.description,
+					parentTypeId: input.parentTypeId,
 					attributes: input.attributes,
 					fields: input.fields,
 					subcategories: input.subcategories,
@@ -82,6 +83,7 @@ export function createRepository(db: Db): Repository {
 					...(input.name !== undefined && { name: input.name }),
 					...(input.description !== undefined && { description: input.description }),
 					...(input.attributes !== undefined && { attributes: input.attributes }),
+					...(input.parentTypeId !== undefined && { parentTypeId: input.parentTypeId }),
 					...(input.fields !== undefined && { fields: input.fields }),
 					...(input.subcategories !== undefined && { subcategories: input.subcategories }),
 					updatedAt: new Date()
@@ -360,6 +362,7 @@ function toItemType(row: typeof itemTypes.$inferSelect): ItemType {
 		slug: row.slug,
 		name: row.name,
 		description: row.description ?? undefined,
+		parentTypeId: row.parentTypeId ?? null,
 		attributes: row.attributes as ItemType['attributes'],
 		fields: row.fields as ItemType['fields'],
 		subcategories: row.subcategories as ItemType['subcategories'],

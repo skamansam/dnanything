@@ -73,6 +73,8 @@ export interface ItemType {
 	/** Display name, e.g. "Music". */
 	name: string;
 	description?: string;
+	/** Optional parent type for hierarchical organization (e.g. "Red Wine" → "Wine"). No runtime inheritance. */
+	parentTypeId?: string | null;
 	/** Rated attributes (0–100 scale) shared by all items of this type. */
 	attributes: Attribute[];
 	/** Metadata fields (e.g. artist, year, label) for items of this type. */
@@ -129,6 +131,8 @@ export interface NewItemType {
 	slug: string;
 	name: string;
 	description?: string;
+	/** Optional parent type ID for hierarchical organization. */
+	parentTypeId?: string | null;
 	attributes: Attribute[];
 	fields: ItemField[];
 	subcategories: Subcategory[];

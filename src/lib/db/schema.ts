@@ -24,6 +24,8 @@ export const itemTypes = pgTable(
 		slug: text('slug').notNull().unique(),
 		name: text('name').notNull(),
 		description: text('description'),
+		/** Optional parent type for hierarchical organization (e.g. "Red Wine" → "Wine"). No runtime inheritance. */
+		parentTypeId: uuid('parent_type_id').references((): PgColumn => itemTypes.id),
 		/** Array of { id, name, description? } — rated attributes (0–100 scale) */
 		attributes: jsonb('attributes').notNull(),
 		/** Array of { id, name, description?, required? } — metadata fields */

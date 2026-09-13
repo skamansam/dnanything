@@ -220,3 +220,25 @@ Twintrinsic `Modal` offering to upload.
 - Should anonymous ratings on items that don't exist remotely (draft items)
   be uploadable, or only ratings on existing remote items? Recommend
   allowing both — drafts become items on upload.
+
+## Parent Types & Cloning
+
+Types support an optional **parent type** for hierarchical organization:
+
+- `ItemType.parentTypeId` — optional reference to another type.
+- No runtime inheritance — the child type is fully independent. The parent
+  link is for display and organization only (breadcrumb navigation,
+  sub-type listings on the types index and type detail pages).
+- Items can be added to any type in the hierarchy (parent or child).
+
+**Cloning**: The `/types/new` page includes a "Clone from Existing Type"
+selector. When a type is selected and "Clone" is clicked:
+
+1. The source type's attributes, fields, and subcategories are copied as
+   drafts into the form.
+2. The name is pre-filled as "{Source Name} (Copy)" and the slug is
+   auto-generated.
+3. The parent type is set to the source type.
+4. The user can modify any of the copied data before creating the new type.
+5. After creation, the new type is fully independent — changes to the
+   source type do not affect it and vice versa.

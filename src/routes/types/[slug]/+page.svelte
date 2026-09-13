@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { Tag, Button } from 'twintrinsic';
 	import SimilarItemCard from '$lib/components/SimilarItemCard/SimilarItemCard.svelte';
-	import { getTypeBySlug, getItemsByTypeId, getTopItemsForType, getTopItemsForSubcategory, getItemsBySubcategory, getUserById, getChangeLogsForEntity } from '$lib/data';
+	import { getTypeBySlug, getItemsByTypeId, getTopItemsForType, getTopItemsForSubcategory, getItemsBySubcategory, getUserById, getChangeLogsForEntity, getParentType, getChildTypes } from '$lib/data';
 	import type { Item, ItemType } from '$lib/types';
 
 	const slug = $derived($page.params.slug);
@@ -12,6 +12,8 @@
 	const updatedBy = $derived(type?.updatedByUserId ? getUserById(type.updatedByUserId) : null);
 	const changeLogs = $derived(type ? getChangeLogsForEntity('type', type.id) : []);
 	const topItems = $derived(type ? getTopItemsForType(type.id, 5) : []);
+	const parentType = $derived(type ? getParentType(type.id) : undefined);
+	const childTypes = $derived(type ? getChildTypes(type.id) : []);
 
 	// Subcategory filter state — empty string = all
 	let activeSubcategory = $state('');
@@ -77,6 +79,10 @@
 		<!-- Breadcrumb -->
 		<nav class="text-sm text-muted mb-4">
 			<a href="/types" class="hover:text-primary">Types</a>
+			{#if parentType}
+				<span class="mx-1">/</span>
+				<a href="/types/{parentType.slug}" class="hover:text-primary">{parentType.name}</a>
+			{/if}
 			<span class="mx-1">/</span>
 			<span class="text-text">{type.name}</span>
 		</nav>
@@ -87,6 +93,25 @@
 			<h1 class="text-3xl font-bold mb-2">{type.name}</h1>
 			{#if type.description}
 				<p class="text-muted max-w-3xl leading-relaxed">{type.description}</p>
+			{/if}
+
+			<!-- Parent type link -->
+			{#if parentType}
+				<div class="mt-2 text-sm text-muted">
+					Part of
+					<a href="/types/{parentType.slug}" class="text-primary hover:underline">{parentType.name}</a>
+				</div>
+			{/if}
+
+			<!-- Child types -->
+			{#if childTypes.length > 0}
+				<div class="mt-2 text-sm text-muted">
+					Sub-types:
+					{#each childTypes as child, i (child.id)}
+						{#if i > 0}<span class="mx-1">·</span>{/if}
+						<a href="/types/{child.slug}" class="text-primary hover:underline">{child.name}</a>
+					{/each}
+				</div>
 			{/if}
 
 			<!-- Created/updated attribution -->

@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { Card, Tag, Button } from 'twintrinsic';
-	import { seedTypes, getItemCount } from '$lib/data';
+	import { seedTypes, getItemCount, getRootTypes, getChildTypes, getTypeById } from '$lib/data';
 	import type { ItemType } from '$lib/types';
+
+	const rootTypes = $derived(getRootTypes());
 </script>
 
 <svelte:head>
@@ -19,13 +21,28 @@
 		</p>
 	</header>
 
-	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-		{#each seedTypes as type (type.id)}
-			{@render typeCard(type)}
+	<!-- Root types with their children -->
+	<div class="flex flex-col gap-8">
+		{#each rootTypes as type (type.id)}
+			<section>
+				{@render typeCard(type)}
+				<!-- Child types -->
+				{#if getChildTypes(type.id).length > 0}
+					<div class="ml-6 mt-4 pl-4 border-l border-border">
+						<p class="text-xs uppercase tracking-widest text-muted mb-3">Sub-types</p>
+						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+							{#each getChildTypes(type.id) as child (child.id)}
+								{@render typeCard(child)}
+							{/each}
+						</div>
+					</div>
+				{/if}
+			</section>
 		{/each}
 
+		<!-- Types with no parent that aren't roots (shouldn't happen, but just in case) -->
 		<!-- Create New Type card (auth-gated) -->
-		<Card href="/types/new" hoverable class="border-dashed">
+		<Card href="/types/new" hoverable class="border-dashed max-w-sm">
 			<div class="flex flex-col items-center justify-center h-full py-8 text-center">
 				<span class="text-3xl mb-2 text-muted">+</span>
 				<p class="font-semibold">Create New Type</p>

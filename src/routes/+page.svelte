@@ -1,67 +1,69 @@
 <script lang="ts">
-	import { Tag, TagGroup } from 'twintrinsic';
 	import DnaAnythingLogo from '$lib/components/DnaAnythingLogo.svelte';
+	import { seedTypes, seedItems, seedUsers, seedRatings, seedReviews } from '$lib/data';
 
-	const builtinTypes = ['Music', 'Books', 'Movies', 'Wine', 'Beer'];
+	const stats = [
+		{ label: 'Item Types', value: seedTypes.length },
+		{ label: 'Catalog Items', value: seedItems.length },
+		{ label: 'Contributors', value: seedUsers.length },
+		{ label: 'Ratings', value: seedRatings.length },
+		{ label: 'Reviews', value: seedReviews.length }
+	];
 
 	const sections = [
 		{
 			number: '01',
 			title: 'Genetic Algorithm Matching',
 			icon: 'mdi:dna',
-			body: [
-				'DNAnything encodes every item as a genome — a vector of attribute ratings that captures its essential character. When you ask "find similar," a genetic algorithm evolves the optimal weighting of those attributes to surface the closest matches.',
-				'Two modes are available. Fast Match uses deterministic distance calculations for instant results — ideal when you need a quick recommendation. Deep Match runs the full genetic algorithm, evolving candidate solutions across hundreds of generations to discover non-obvious connections that simple distance metrics miss.',
-				'The GA tunes itself: mutation rates, crossover points, and selection pressure all adapt based on population diversity. You can watch it converge in real time, stop it early, or let it run to completion. Every result includes a breakdown of which attributes contributed most to the match.'
-			]
+			body: 'DNAnything encodes every item as a genome — a vector of attribute ratings that captures its essential character. When you ask "find similar," a genetic algorithm evolves the optimal weighting of those attributes to surface the closest matches. Two modes are available: Fast Match uses deterministic distance calculations for instant results, while Deep Match runs the full genetic algorithm across hundreds of generations to discover non-obvious connections.'
 		},
 		{
 			number: '02',
 			title: 'Any Item Type',
 			icon: 'mdi:shape-outline',
-			body: [
-				'Music, books, movies, wine, beer — these are just the beginning. DNAnything lets you define any item type with its own custom attribute set. A wine type might have tannin, acidity, body, sweetness, and finish. A book type might have prose density, plot complexity, character development, world-building, and pacing.',
-				'Creating a new type is straightforward: name it, define the attributes that matter, and start adding items. Each attribute gets a 0–5 rating scale. Zero means the attribute is absent; five means it dominates. A song with heavy female vocals but no violin gets a 5 for female vocals and a 0 for violin.',
-				'Types are community-owned once created. Any signed-in user can add items and rate attributes. Anonymous users can browse everything — they just can\'t create or rate until they log in.'
-			]
+			body: 'Music, books, movies, wine, beer — these are just the beginning. DNAnything lets you define any item type with its own custom attribute set. A wine type might have tannin, acidity, body, sweetness, and finish. A book type might have prose density, plot complexity, character development, world-building, and pacing. Each attribute gets a 0–5 rating scale that forms the item\'s DNA.'
 		},
 		{
 			number: '03',
 			title: 'Community Ratings',
 			icon: 'mdi:star-outline',
-			body: [
-				'Every user rates items independently, and DNAnything computes a community average in real time. The item data page shows both: the aggregate score that represents the consensus, and each individual rating that contributes to it.',
-				'This dual display matters because averages can mask interesting disagreement. An album that averages 3.5 for "heavy beats" might actually be polarizing — half the raters gave it 5, half gave it 1. Seeing the distribution tells you something the average alone can\'t.',
-				'Ratings are stored per-user, so you always have your own rating history. Sign in to sync your ratings to the cloud, or stay anonymous and keep everything in localStorage — your data never leaves your device until you choose to upload it.'
-			]
+			body: 'Every user rates items independently, and DNAnything computes a community average in real time. The item data page shows both the aggregate score that represents the consensus and each individual rating that contributes to it. More ratings mean stronger certainty — a 4.5 from 20 ratings ranks above a 4.5 from 2.'
 		},
 		{
 			number: '04',
-			title: 'Local + Cloud',
-			icon: 'mdi:cloud-sync-outline',
-			body: [
-				'DNAnything is local-first. You can browse types, view items, and rate attributes without ever creating an account. Everything is stored in your browser\'s localStorage under a pseudo-user ID — no server round-trips, no tracking, no data leaves your device.',
-				'When you\'re ready to contribute to the community or access your ratings from another device, sign in with GitHub or email. The app detects any unsaved local data and offers to upload it to your cloud account — no manual export, no lost ratings.',
-				'Cloud storage uses Supabase with row-level security, so your ratings are only visible to you until you choose to share them. The backend is abstracted behind a repository interface, meaning the entire data layer can be swapped to a different provider without touching the application code.'
-			]
+			title: 'Wiki-Style Change Tracking',
+			icon: 'mdi:history',
+			body: 'Every change to the catalog — creating a type, adding an item, updating a rating, writing a review — is logged in a wiki-style change history. Each entry records who made the change, what action was taken, and when. No data is ever hard-deleted; flagged content is hidden pending moderator review, preserving the full history.'
 		}
+	];
+
+	const typeLinks = [
+		{ name: 'Music', slug: 'music', icon: 'mdi:music' },
+		{ name: 'Books', slug: 'books', icon: 'mdi:book-open-variant' },
+		{ name: 'Movies', slug: 'movies', icon: 'mdi:movie' },
+		{ name: 'Wine', slug: 'wine', icon: 'mdi:glass-wine' },
+		{ name: 'Beer', slug: 'beer', icon: 'mdi:glass-mug' }
 	];
 </script>
 
+<svelte:head>
+	<title>DNAnything — Genetic Algorithm Catalog of Cultural Artifacts</title>
+	<meta name="description" content="Compare anything using a genetic algorithm. Rate attributes, find similar items, and build a community catalog." />
+</svelte:head>
+
 <div class="flex flex-col">
 	<!-- Hero -->
-	<header class="flex flex-col items-center justify-center text-center py-24 px-6 gap-6">
-		<DnaAnythingLogo size={64} class="mb-2" />
-		<h1 class="text-5xl font-bold text-primary-500 tracking-tight">DNAnything</h1>
-		<p class="text-xl text-text opacity-70 max-w-2xl leading-relaxed">
+	<header class="flex flex-col items-center justify-center text-center py-20 px-6 gap-6">
+		<DnaAnythingLogo size={72} variant="long" />
+		<p class="text-xl text-muted max-w-2xl leading-relaxed">
 			A genetic-algorithm catalog of cultural artifacts.
 			Encode any item as a genome of attributes, rate it, and discover
 			similar items through evolutionary matching.
 		</p>
-		<div class="flex gap-4 mt-4">
+		<div class="flex gap-4 mt-2">
 			<a
 				href="/types"
-				class="px-6 py-3 rounded-lg bg-primary-500 text-white font-medium hover:bg-primary-600 transition-colors"
+				class="px-6 py-3 rounded-lg bg-primary text-white font-medium hover:opacity-90 transition-opacity"
 			>
 				Browse Catalog
 			</a>
@@ -74,61 +76,73 @@
 		</div>
 	</header>
 
-	<!-- Abstract -->
-	<section class="px-6 py-12 max-w-3xl mx-auto">
-		<div class="border-l-2 border-primary-500 pl-6">
-			<h2 class="text-sm font-semibold uppercase tracking-wider text-primary-500 mb-3">Abstract</h2>
-			<p class="text-base text-text leading-relaxed">
-				DNAnything treats every item — a song, a book, a bottle of wine — as a genome:
-				a vector of attribute ratings that captures its essential character. A genetic
-				algorithm evolves which attributes matter most for any given comparison, surfacing
-				matches that simple similarity metrics miss. Rate anonymously in your browser, or
-				sign in to contribute to the community average and sync across devices.
-			</p>
+	<!-- Stats -->
+	<section class="px-6 py-8 max-w-4xl mx-auto w-full">
+		<div class="grid grid-cols-2 sm:grid-cols-5 gap-6 text-center">
+			{#each stats as stat (stat.label)}
+				<div>
+					<p class="text-3xl font-bold tabular-nums">{stat.value}</p>
+					<p class="text-sm text-muted mt-1">{stat.label}</p>
+				</div>
+			{/each}
 		</div>
 	</section>
 
-	<!-- Feature sections with alternating layout -->
+	<!-- Catalog types -->
+	<section class="px-6 py-8 max-w-4xl mx-auto w-full">
+		<p class="text-xs uppercase tracking-widest text-muted mb-4 text-center">§ Browse by Type</p>
+		<div class="grid grid-cols-2 sm:grid-cols-5 gap-4">
+			{#each typeLinks as t (t.slug)}
+				<a
+					href="/types/{t.slug}"
+					class="flex flex-col items-center gap-3 p-6 rounded-lg border border-border hover:border-primary hover:bg-surface transition-colors"
+				>
+					<iconify-icon icon={t.icon} class="text-3xl text-primary"></iconify-icon>
+					<span class="font-medium">{t.name}</span>
+				</a>
+			{/each}
+		</div>
+	</section>
+
+	<!-- Feature sections -->
 	{#each sections as section, i (section.number)}
-		<section
-			class="px-6 py-16 max-w-5xl mx-auto"
-		>
+		<section class="px-6 py-16 max-w-4xl mx-auto w-full">
 			<div class="flex flex-col md:flex-row items-center gap-8 {i % 2 === 1 ? 'md:flex-row-reverse' : ''}">
-				<!-- Icon -->
-				<div class="flex-shrink-0 w-32 h-32 flex items-center justify-center rounded-full border-2 border-primary-500 bg-surface">
-					<iconify-icon icon={section.icon} class="text-5xl text-primary-500"></iconify-icon>
+				<div class="flex-shrink-0 w-24 h-24 flex items-center justify-center rounded-full border-2 border-primary bg-surface">
+					<iconify-icon icon={section.icon} class="text-4xl text-primary"></iconify-icon>
 				</div>
-				<!-- Text -->
 				<div class="flex-1 max-w-xl">
-					<div class="flex items-baseline gap-3 mb-4">
-						<span class="text-sm font-normal text-primary-500 tabular-nums">{section.number}</span>
-						<h2 class="text-2xl font-semibold text-text">{section.title}</h2>
+					<div class="flex items-baseline gap-3 mb-3">
+						<span class="text-sm font-normal text-primary tabular-nums">{section.number}</span>
+						<h2 class="text-2xl font-semibold">{section.title}</h2>
 					</div>
-					{#each section.body as paragraph}
-						<p class="text-base text-text opacity-80 leading-relaxed mb-4">{paragraph}</p>
-					{/each}
+					<p class="text-base text-muted leading-relaxed">{section.body}</p>
 				</div>
 			</div>
 		</section>
 	{/each}
 
-	<!-- Catalog Types -->
-	<section class="px-6 py-12 max-w-3xl mx-auto border-t border-border">
-		<h2 class="text-sm font-semibold uppercase tracking-wider text-primary-500 mb-4">Catalog Types</h2>
-		<TagGroup>
-			{#each builtinTypes as type (type)}
-				<Tag label={type} />
-			{/each}
-		</TagGroup>
-	</section>
-
 	<!-- CTA -->
-	<section class="text-center py-16 px-6">
-		<a
-			href="/types"
-			class="inline-block px-8 py-3 rounded-lg bg-primary-500 text-white font-medium hover:bg-primary-600 transition-colors"
-		>
-			Browse Catalog →
-		</a>
+	<section class="text-center py-16 px-6 border-t border-border">
+		<p class="text-xs uppercase tracking-widest text-muted mb-4">§ Get Started</p>
+		<h2 class="text-2xl font-bold mb-4">Explore the Catalog</h2>
+		<p class="text-muted mb-6 max-w-xl mx-auto">
+			Browse item types, explore attribute DNA profiles, and find similar items.
+			Create an account to rate, review, and contribute.
+		</p>
+		<div class="flex justify-center gap-4">
+			<a
+				href="/types"
+				class="px-6 py-3 rounded-lg bg-primary text-white font-medium hover:opacity-90 transition-opacity"
+			>
+				Browse Types
+			</a>
+			<a
+				href="/contribute"
+				class="px-6 py-3 rounded-lg border border-border text-text font-medium hover:bg-surface transition-colors"
+			>
+				Contribute
+			</a>
+		</div>
 	</section>
 </div>

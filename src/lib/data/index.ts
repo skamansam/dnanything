@@ -28,9 +28,31 @@ export function getTypeBySlug(slug: string): ItemType | undefined {
 	return seedTypes.find((t) => t.slug === slug);
 }
 
+/** Get all types. */
+export function getAllTypes(): ItemType[] {
+	return seedTypes;
+}
+
 /** Find a type by id. */
 export function getTypeById(id: string): ItemType | undefined {
 	return seedTypes.find((t) => t.id === id);
+}
+
+/** Get the parent type of a type, if any. */
+export function getParentType(typeId: string): ItemType | undefined {
+	const type = getTypeById(typeId);
+	if (!type?.parentTypeId) return undefined;
+	return getTypeById(type.parentTypeId);
+}
+
+/** Get all child types of a type. */
+export function getChildTypes(parentTypeId: string): ItemType[] {
+	return seedTypes.filter((t) => t.parentTypeId === parentTypeId);
+}
+
+/** Get all root types (types with no parent). */
+export function getRootTypes(): ItemType[] {
+	return seedTypes.filter((t) => !t.parentTypeId);
 }
 
 /** Get all items belonging to a type. */
