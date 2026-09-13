@@ -1,6 +1,6 @@
 {
 	"name": "DNAnything",
-	"short_name": "DNAnything",
+	"short_name": "DNA",
 	"description": "Compare anything using a genetic algorithm.",
 	"start_url": "/",
 	"display": "standalone",

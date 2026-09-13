@@ -1,71 +1,77 @@
 # Branding & Logo Plan
 
-**Objective**: Name the app "DNAnything" and create a cool logo where the
-letters **DNA** are depicted with one of the letters rendered as a double
-helix.
+**Objective**: Name the app "DNAnything" and create a logo system where the
+letters **DNA** form the core mark, with the **A** rendered as a double
+helix (the favicon glyph).
 
-## Goals
+## Logo System
 
-- A recognizable wordmark "DNAnything" usable in the App header, favicon,
-  OG/social preview, and the README.
-- A standalone square icon (the DNA double-helix glyph) for favicon, app
-  icon, and loading states.
-- Themable: the logo must respect the app theme color (CSS variables), like
-  Twintrinsic's `TwintrinsicLogo` component does, so it works on any theme.
+The logo has three variants, all sharing the same helix-A glyph:
 
-## Design Direction
+| Variant | Usage | Content |
+|---------|-------|---------|
+| **long** | App header, README, OG preview | D · N · helix-A · "nything" |
+| **short** | Compact spaces, mobile header, PWA | D · N · helix-A |
+| **icon** | Favicon, app icon, loading states, about page | Just the helix-A glyph |
 
-The wordmark is **D · N · A** + "nything", where the middle **N** (or the
-**A**) is drawn as a vertical double helix that reads as the letter at a
-glance. Two concepts to prototype:
+### The Helix-A
 
-1. **Helix-as-N**: Two sinusoidal strands cross twice to form the diagonal
-   strokes of an `N`, with rung pairs as the connecting base pairs. Reads
-   as "D-N-A" at small sizes.
-2. **Helix-as-A**: The double helix forms the legs of an `A` with a base-pair
-   rung as the crossbar. Slightly less literal but visually distinctive.
+The **A** in all variants is a double-helix glyph — two sinusoidal strands
+that form the legs of an `A`, with base-pair rungs as the crossbar. This is
+the same SVG path used in `static/favicon.svg`, so the favicon, app icon,
+and logo all share the identical mark.
 
-Recommendation: prototype both as SVG and pick the one that stays legible at
-16×16 (favicon size). The helix letter becomes the standalone square icon.
+The glyph is authored as inline SVG using `fill="currentColor"` so it
+inherits the theme color automatically.
 
 ## Deliverables
 
-- [ ] `static/logo.svg` — full wordmark (D-helix-A + "nything")
-- [ ] `static/favicon.svg` — square helix glyph only
-- [ ] `static/manifest.json` — PWA manifest referencing icon variants
-- [ ] `src/lib/components/DnaAnythingLogo.svelte` — Svelte 5 component
-      wrapping the SVG, accepting a `size` prop and inheriting `currentColor`
-      / theme CSS variables so it themes correctly
-- [ ] OG/social preview image (`static/og.png`, 1200×630) — export of the
-      wordmark on a themed background
+- [x] `static/favicon.svg` — the helix-A glyph (32×32 viewBox)
+- [x] `static/manifest.json` — PWA manifest with `short_name: "DNA"`
+- [x] `src/lib/components/DnaAnythingLogo.svelte` — Svelte 5 component
+      with `variant` prop (`short` | `long` | `icon`), `size` prop, and
+      `currentColor` theming
+- [ ] `static/logo.svg` — standalone long-form wordmark (for README/OG)
+- [ ] `static/og.png` — OG/social preview image (1200×630)
 - [ ] README badge/header using the logo
 
 ## Implementation Notes
 
-- **SVG-first**: author the logo as inline SVG so it scales crisply and can
-  be themed via `fill="currentColor"` / CSS variables. No raster assets
-  except the OG preview.
+- **SVG-first**: the helix-A path is identical to `static/favicon.svg`,
+  ensuring visual consistency across all touchpoints.
 - **Twintrinsic integration**: the `App` component accepts a `brand.logo`
-  snippet (see `fo4-tools/src/routes/+layout.svelte`). Pass a snippet that
-  renders `DnaAnythingLogo` so it appears in the app header.
-- **Theme variables**: use `var(--theme-primary)` / `var(--theme-accent)`
-  for the helix strands so the logo recolors with the active theme, matching
-  the pattern in `fo4-tools/src/app.css`.
-- **Accessibility**: the logo component should expose an `aria-label`
+  snippet. The layout passes a snippet that renders
+  `<DnaAnythingLogo variant="long" />` so the full wordmark appears in the
+  app header.
+- **Theme variables**: the helix-A uses `fill="currentColor"` so it
+  recolors with the active theme (wine, burgundy, merlot, oxblood).
+- **Accessibility**: the logo component exposes an `aria-label`
   ("DNAnything home") when used as a link, and a decorative `aria-hidden`
   mode when used purely as a mark.
+- **PWA manifest**: `short_name` is "DNA" (shown on mobile home screens),
+  `name` is "DNAnything" (shown in app install prompts).
+
+## Component API
+
+```svelte
+<DnaAnythingLogo size={32} variant="long" />   <!-- DNAnything -->
+<DnaAnythingLogo size={32} variant="short" />  <!-- DNA -->
+<DnaAnythingLogo size={32} variant="icon" />  <!-- helix-A only -->
+```
+
+Props:
+- `size` (number, default 32) — height in pixels
+- `variant` ('short' | 'long' | 'icon', default 'long')
+- `ariaLabel` (string, optional) — for navigable links
+- `class` (string, optional) — extra classes
 
 ## Tasks
 
-1. Sketch the two helix-letter concepts (SVG).
-2. Pick the legible-at-16px winner; refine the wordmark.
-3. Build `DnaAnythingLogo.svelte` (Svelte 5 runes, `size` prop, theme-aware).
-4. Export favicon variants + OG preview.
-5. Wire into `App` brand snippet and `app.html` `<title>`/favicon.
-6. Add a Vitest unit test asserting the logo renders and respects `size`.
-
-## Open Questions
-
-- Which letter should be the helix — **N** or **A**? (Prototype both first.)
-- Brand color palette beyond the theme — any preferred accent for the helix
-  strands, or always follow the active theme?
+- [x] Build `DnaAnythingLogo.svelte` with three variants.
+- [x] Use the favicon SVG path for the helix-A in all variants.
+- [x] Wire into `App` brand snippet (long-form in header).
+- [x] Update PWA manifest `short_name` to "DNA".
+- [ ] Export standalone `logo.svg` for README/OG use.
+- [ ] Create OG preview image.
+- [ ] Add a Vitest unit test asserting the logo renders all three variants
+  and respects `size`.
