@@ -1,7 +1,7 @@
 @import "tailwindcss";
-@import "../../twintrinsic/src/lib/twintrinsic.css";
+@import "twintrinsic/twintrinsic.css";
 
-@source "../../twintrinsic/src/lib/components/**/*.svelte";
+@source "twintrinsic/dist/components/**/*.svelte";
 @source "./routes/**/*.svelte";
 @source "./lib/components/**/*.svelte";
 
