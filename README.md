@@ -44,6 +44,34 @@ dnanything/
 └── vite.config.ts           # Twintrinsic local alias
 ```
 
+## Design Quality
+
+This project uses [impeccable](https://impeccable.style) to catch UI
+anti-patterns and design-quality issues. Scan locally with:
+
+```bash
+npx impeccable detect src/
+```
+
+CI runs the same scan on UI files changed in each PR and fails on
+findings (`.github/workflows/impeccable.yml`). Waive a false positive
+where it lives with an inline `impeccable-disable` comment, or manage
+repo-wide ignores with `npx impeccable ignores` (stored in
+`.impeccable/config.json`). Agent skills live in the user-level install:
+`npx impeccable install --user`.
+
+## AI Policy
+
+AI is a tool, nothing more. Every human associated with a PR holds the
+responsibility for the code it contains — if it is bad code, or does not
+conform to the ideas set forth in this project, it will be rejected.
+
+I, Samuel "Skaman Sam" C Tyler, am the project lead. I have decades of PR
+reviews under my belt and can be fairly strict with submitted code. To
+that end, CI runs checks that catch overly generated code (see
+[Design Quality](#design-quality)) — your PRs must pass those checks in
+order to be merged.
+
 ## Documentation
 
 See `docs/plans/` for detailed implementation plans, including:

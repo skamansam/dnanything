@@ -27,3 +27,6 @@ vite.config.ts.timestamp-*
 
 # Playwright
 test-results
+
+# Impeccable local-only detector ignores
+.impeccable/config.local.json
